@@ -9,6 +9,10 @@ namespace UniVest.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string Sigla { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public List<Campus> Campi { get; set; }

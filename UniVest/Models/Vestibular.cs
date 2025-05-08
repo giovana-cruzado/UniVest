@@ -10,6 +10,10 @@ namespace UniVest.Models
         [DataType(DataType.Date)]
         public DateTime DataPrevista { get; set; }
 
+        [Required]
+        [StringLength(100)]
+        public string Nome { get; set; }
+
         [StringLength(100)]
         public decimal PrecoInscricao { get; set; }
 

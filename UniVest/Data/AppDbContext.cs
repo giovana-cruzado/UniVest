@@ -16,6 +16,8 @@ namespace UniVest.Data
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Vestibular> Vestibulares { get; set; }
         public DbSet<Favorito> Favoritos { get; set; }
+        public DbSet<Modalidade> Modalidades { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
