@@ -23,8 +23,7 @@ namespace UniVest.Data
         {
             base.OnModelCreating(builder);
 
-            // Renomeia as tabelas do Identity se quiser
-            builder.Entity<Usuario>().ToTable("Usuarios"); 
+            builder.Entity<Usuario>().ToTable("Usuarios");
             builder.Entity<IdentityRole>().ToTable("Perfis");
             builder.Entity<IdentityUserRole<string>>().ToTable("UsuarioPerfis");
             builder.Entity<IdentityUserClaim<string>>().ToTable("UsuarioReivindicacoes");
@@ -32,7 +31,10 @@ namespace UniVest.Data
             builder.Entity<IdentityUserToken<string>>().ToTable("UsuarioTokens");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("PerfilReivindicacoes");
 
-            // Outras configurações personalizadas se desejar
+            builder.Entity<Vestibular>()
+                .Property(v => v.PrecoInscricao)
+                .HasPrecision(10, 2);
         }
+
     }
 }
