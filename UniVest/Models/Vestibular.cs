@@ -6,9 +6,17 @@ namespace UniVest.Models
     {
         public int Id { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
-        public DateTime DataPrevista { get; set; }
+        public DateTime? DataPrevista1 { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? DataPrevista2 { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? DataPrevista3 { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? DataPrevista4 { get; set; }
 
         [Required]
         [StringLength(100)]

@@ -4,67 +4,107 @@ using UniVest.Data;
 
 namespace UniVest.Data
 {
-    public static class AppDbSeed
+    public class AppDbSeed
     {
-        public static void Seed(IApplicationBuilder app)
+        public Seed(ModelBuild builder)
         {
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            List<Modalidade> modalidades = new() {
+                new Modalidade { Id = 1, Nome = "Bacharelado" },
+                new Modalidade { Id = 2, Nome = "Licenciatura" },
+                new Modalidade { Id = 3, Nome = "Tecnólogo" }
+            };
+            builder.Entity<modalidades>().HasData(modalidades);
 
-                context.Database.Migrate(); 
-                
-                if (!context.Modalidades.Any())
-                {
-                    context.Modalidades.AddRange(
-                        new Modalidade { Nome = "Bacharelado" },
-                        new Modalidade { Nome = "Licenciatura" },
-                        new Modalidade { Nome = "Tecnólogo" }
-                    );
-                    context.SaveChanges();
+            List<Universidade> universidades = new() {
+                new Universidade { Id = 1, Nome = "Universidade de São Paulo", Sigla = "USP" },
+                new Universidade { Id = 2, Nome = "Universidade Estadual Paulista", Sigla = "Unesp" },
+                new Universidade { Id = 3, Nome = "Universidade Estadual de Campinas", Sigla = "Unicamp" }
+            };
+            builder.Entity<universidades>().HasData(universidades);
+
+            List<Vestibular> vestibulares = new() {
+                new Vestibular {
+                    Nome = "Fuvest",
+                    DataPrevista1 = DateTime.Parse("23/11/2025"),
+                    DataPrevista2 = DateTime.Parse("14/12/2025"),
+                    DataPrevista3 = DateTime.Parse("15/12/2025"),
+                    DataPrevista4 = DateTime.Parse("09/12/2025"),
+                    Edital = null,
+                    PrecoInscricao = "R$211,00",
+                    UniversidadeId = 1
+                },
+                new Vestibular {
+                    Nome = "Unesp",
+                    DataPrevista1 = DateTime.Parse("02/11/2025"),
+                    DataPrevista2 = DateTime.Parse("07/12/2025"),
+                    DataPrevista3 = DateTime.Parse("08/12/2025"),
+                    DataPrevista4 = DateTime.Parse(""),
+                    Edital = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                    PrecoInscricao = "R$210,00",
+                    UniversidadeId = 2
+                },
+                new Vestibular {
+                    Nome = "Comvest",
+                    DataPrevista1 = DateTime.Parse("26/10/2025"),
+                    DataPrevista2 = DateTime.Parse("30/11/2025"),
+                    DataPrevista3 = DateTime.Parse("01/12/2025"),
+                    DataPrevista4 = DateTime.Parse("03/12/2025"),
+                    Edital = null,
+                    PrecoInscricao = "R$210,00",
+                    UniversidadeId = 3
                 }
+            };
+            builder.Entity<vestibulares>().HasData(vestibulares);
 
-                if (!context.Universidades.Any())
-                {
-                    var usp = new Universidade { Nome = "USP", Sigla = "USP" };
-                    var unesp = new Universidade { Nome = "Unesp", Sigla = "UNESP" };
-
-                    context.Universidades.AddRange(usp, unesp);
-                    context.SaveChanges();
-
-                    var vestibularUsp = new Vestibular
-                    {
-                        UniversidadeId = usp.Id,
-                        Edital = "https://www.fuvest.br/edital2025"
-                    };
-
-                    var vestibularUnesp = new Vestibular
-                    {
-                        UniversidadeId = unesp.Id,
-                        Edital = "https://www.vunesp.com.br/edital2025"
-                    };
-
-                    context.Vestibulares.AddRange(vestibularUsp, vestibularUnesp);
-                    context.SaveChanges();
-
-                    var modalidades = context.Modalidades.ToList();
-
-                    context.Cursos.AddRange(
-                        new Curso { Nome = "Engenharia", UniversidadeId = usp.Id, ModalidadeId = modalidades.First(m => m.Nome == "Bacharelado").Id },
-                        new Curso { Nome = "Pedagogia", UniversidadeId = unesp.Id, ModalidadeId = modalidades.First(m => m.Nome == "Licenciatura").Id }
-                    );
-
-                    var modalidadeTecnologo = modalidades.FirstOrDefault(m => m.Nome == "Tecnólogo");
-                    if (modalidadeTecnologo != null)
-                    {
-                        context.Cursos.Add(
-                            new Curso { Nome = "Gestão Comercial", UniversidadeId = usp.Id, ModalidadeId = modalidadeTecnologo.Id }
-                        );
-                    }
-
-                    context.SaveChanges();
+            List<Curso> cursos = new() {
+                new Curso {
+                    Id = 1,
+                    Nome = "Administração",
+                    ModalidadeId = 1,
+                    UniversidadeId = 1,
+                },
+                new Curso {
+                    Id = 2,
+                    Nome = "Agronomia",
+                    ModalidadeId = 1,
+                    UniversidadeId = 2,
+                },
+                new Curso {
+                    Id = 3,
+                    Nome = "Arquitetura e Urbanismo"
+                    ModalidadeId = 1,
+                    UniversidadeId = 3,
                 }
-            }
+            };
+            builder.Entity<cursos>().HasData(cursos);
+
+            List<Campus> campus = new() {
+                new Campus {
+                    Id = 1,
+                    Nome = "Campinas",
+                    Endereco = "Rua Saturnino de Brito, 224, Cidade Universitária Zeferino Vaz, Campinas - São Paulo",
+                    UniversidadeId = 3,
+                    List<Curso> = 3,
+                },
+                new Campus {
+                    Id = 2,
+                    Nome = "São Paulo",
+                    Endereco = "Avenida Professor Luciano Gualberto, 908 - Butantã - São Paulo/SP - 05508-010",
+                    UniversidadeId = 1,
+                    List<CursoId> = 1,
+                },
+                new Campus {
+                    Id = 3,
+                    Nome = "Botucatu",
+                    Endereco = "Av. Universitária, 3780 - Altos do Paraíso",
+                    UniversidadeId = 2,
+                    List<CursoId> = 2,
+                }
+            };
+            builder.Entity<campus>().HasData(campus);
+
+
+            context.SaveChanges();
         }
     }
 }

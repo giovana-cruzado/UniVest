@@ -16,6 +16,6 @@ namespace UniVest.Models
         public int UniversidadeId { get; set; }
         public Universidade Universidade { get; set; }
 
-        public List<Curso> Cursos { get; set; }
+        public List<CursoId> Cursos { get; set; }
     }
 }
