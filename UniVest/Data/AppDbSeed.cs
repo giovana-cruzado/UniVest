@@ -16,7 +16,7 @@ namespace UniVest.Data
             builder.Entity<modalidades>().HasData(modalidades);
 
             List<Universidade> universidades = new() {
-                new Universidade { Id = 1, Nome = "Universidade de São Paulo", Sigla = "USP" },
+                new Universidade { Id = 1, Nome = "Universidade de São Paulo", Sigla = "USP", },
                 new Universidade { Id = 2, Nome = "Universidade Estadual Paulista", Sigla = "Unesp" },
                 new Universidade { Id = 3, Nome = "Universidade Estadual de Campinas", Sigla = "Unicamp" }
             };
@@ -61,19 +61,16 @@ namespace UniVest.Data
                     Id = 1,
                     Nome = "Administração",
                     ModalidadeId = 1,
-                    UniversidadeId = 1,
                 },
                 new Curso {
                     Id = 2,
                     Nome = "Agronomia",
                     ModalidadeId = 1,
-                    UniversidadeId = 2,
                 },
                 new Curso {
                     Id = 3,
                     Nome = "Arquitetura e Urbanismo"
                     ModalidadeId = 1,
-                    UniversidadeId = 3,
                 }
             };
             builder.Entity<cursos>().HasData(cursos);
@@ -82,23 +79,20 @@ namespace UniVest.Data
                 new Campus {
                     Id = 1,
                     Nome = "Campinas",
-                    Endereco = "Rua Saturnino de Brito, 224, Cidade Universitária Zeferino Vaz, Campinas - São Paulo",
+                    Endereco = "",
                     UniversidadeId = 3,
-                    List<Curso> = 3,
                 },
                 new Campus {
                     Id = 2,
                     Nome = "São Paulo",
-                    Endereco = "Avenida Professor Luciano Gualberto, 908 - Butantã - São Paulo/SP - 05508-010",
+                    Endereco = "",
                     UniversidadeId = 1,
-                    List<CursoId> = 1,
                 },
                 new Campus {
                     Id = 3,
                     Nome = "Botucatu",
-                    Endereco = "Av. Universitária, 3780 - Altos do Paraíso",
+                    Endereco = "",
                     UniversidadeId = 2,
-                    List<CursoId> = 2,
                 }
             };
             builder.Entity<campus>().HasData(campus);

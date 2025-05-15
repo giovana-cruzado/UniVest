@@ -14,8 +14,8 @@ namespace UniVest.Models
         public string Endereco { get; set; }
 
         public int UniversidadeId { get; set; }
+
         public Universidade Universidade { get; set; }
 
-        public List<CursoId> Cursos { get; set; }
     }
 }
