@@ -6,21 +6,21 @@ namespace UniVest.Data
 {
     public class AppDbSeed
     {
-        public Seed(ModelBuild builder)
+        public AppDbSeed(ModelBuilder builder)
         {
             List<Modalidade> modalidades = new() {
                 new Modalidade { Id = 1, Nome = "Bacharelado" },
                 new Modalidade { Id = 2, Nome = "Licenciatura" },
                 new Modalidade { Id = 3, Nome = "Tecnólogo" }
             };
-            builder.Entity<modalidades>().HasData(modalidades);
+            builder.Entity<Modalidade>().HasData(modalidades);
 
             List<Universidade> universidades = new() {
                 new Universidade { Id = 1, Nome = "Universidade de São Paulo", Sigla = "USP", },
                 new Universidade { Id = 2, Nome = "Universidade Estadual Paulista", Sigla = "Unesp" },
                 new Universidade { Id = 3, Nome = "Universidade Estadual de Campinas", Sigla = "Unicamp" }
             };
-            builder.Entity<universidades>().HasData(universidades);
+            builder.Entity<Universidade>().HasData(universidades);
 
             List<Vestibular> vestibulares = new() {
                 new Vestibular {
@@ -30,7 +30,7 @@ namespace UniVest.Data
                     DataPrevista3 = DateTime.Parse("15/12/2025"),
                     DataPrevista4 = DateTime.Parse("09/12/2025"),
                     Edital = null,
-                    PrecoInscricao = "R$211,00",
+                    PrecoInscricao = 211.00m,
                     UniversidadeId = 1
                 },
                 new Vestibular {
@@ -40,7 +40,7 @@ namespace UniVest.Data
                     DataPrevista3 = DateTime.Parse("08/12/2025"),
                     DataPrevista4 = DateTime.Parse(""),
                     Edital = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
-                    PrecoInscricao = "R$210,00",
+                    PrecoInscricao = 210.00m,
                     UniversidadeId = 2
                 },
                 new Vestibular {
@@ -50,11 +50,11 @@ namespace UniVest.Data
                     DataPrevista3 = DateTime.Parse("01/12/2025"),
                     DataPrevista4 = DateTime.Parse("03/12/2025"),
                     Edital = null,
-                    PrecoInscricao = "R$210,00",
+                    PrecoInscricao = 210.00m,
                     UniversidadeId = 3
                 }
             };
-            builder.Entity<vestibulares>().HasData(vestibulares);
+            builder.Entity<Vestibular>().HasData(vestibulares);
 
             List<Curso> cursos = new() {
                 new Curso {
@@ -69,11 +69,11 @@ namespace UniVest.Data
                 },
                 new Curso {
                     Id = 3,
-                    Nome = "Arquitetura e Urbanismo"
+                    Nome = "Arquitetura e Urbanismo",
                     ModalidadeId = 1,
                 }
             };
-            builder.Entity<cursos>().HasData(cursos);
+            builder.Entity<Curso>().HasData(cursos);
 
             List<Campus> campus = new() {
                 new Campus {
@@ -95,10 +95,7 @@ namespace UniVest.Data
                     UniversidadeId = 2,
                 }
             };
-            builder.Entity<campus>().HasData(campus);
-
-
-            context.SaveChanges();
+            builder.Entity<Campus>().HasData(campus);
         }
     }
 }
