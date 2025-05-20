@@ -60,17 +60,14 @@ namespace UniVest.Data
                 new Curso {
                     Id = 1,
                     Nome = "Administração",
-                    ModalidadeId = 1,
                 },
                 new Curso {
                     Id = 2,
-                    Nome = "Agronomia",
-                    ModalidadeId = 1,
+                    Nome = "Matemática",
                 },
                 new Curso {
                     Id = 3,
                     Nome = "Arquitetura e Urbanismo",
-                    ModalidadeId = 1,
                 }
             };
             builder.Entity<Curso>().HasData(cursos);
@@ -90,12 +87,50 @@ namespace UniVest.Data
                 },
                 new Campus {
                     Id = 3,
-                    Nome = "Botucatu",
+                    Nome = "Bauru",
                     Endereco = "",
                     UniversidadeId = 2,
                 }
             };
             builder.Entity<Campus>().HasData(campus);
+
+            List<CampusCurso> campuscurso = new() {
+                new CampusCurso {
+                    Id = 1,
+                    CampusId = 1,
+                    CursoId = 1,
+                    Periodo = Periodo.Noturno,
+                    ModalidadeId = 1
+                },
+                new CampusCurso {
+                    Id = 2,
+                    CampusId = 2,
+                    CursoId = 2,
+                    Periodo = Periodo.Diurno,
+                    ModalidadeId = 1
+                },
+                new CampusCurso {
+                    Id = 2,
+                    CampusId = 2,
+                    CursoId = 2,
+                    Periodo = Periodo.Diurno,
+                    ModalidadeId = 2
+                },
+                new CampusCurso {
+                    Id = 2,
+                    CampusId = 2,
+                    CursoId = 2,
+                    Periodo = Periodo.Noturno,
+                    ModalidadeId = 2
+                },
+                new CampusCurso {
+                    Id = 3,
+                    CampusId = 3,
+                    CursoId = 3,
+                    Periodo = Periodo.Integral,
+                    ModalidadeId = 1
+                }
+            }
         }
     }
 }
