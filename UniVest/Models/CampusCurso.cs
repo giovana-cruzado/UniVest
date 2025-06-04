@@ -21,7 +21,9 @@ public class CampusCurso
     public Curso Curso { get; set; }
 
     [Required]
-    public Modalidade ModalidadeId { get; set; }
+    public int ModalidadeId { get; set; }
+    [ForeignKey("ModalidadeId")]
+    public Modalidade Modalidade { get; set; }
 
     [Required]
     public Periodo Periodo { get; set; }

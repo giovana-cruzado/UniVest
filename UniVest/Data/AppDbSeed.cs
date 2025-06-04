@@ -130,7 +130,7 @@ namespace UniVest.Data
                     Periodo = Periodo.Integral,
                     ModalidadeId = 1
                 }
-            }
+            };
         }
     }
 }
