@@ -1,4 +1,4 @@
-namespace GStore.Helpers;
+namespace UniVest.Helpers;
 public static class TranslateIdentityErrors
 {
     public static string TranslateErrorMessage(string codeError)

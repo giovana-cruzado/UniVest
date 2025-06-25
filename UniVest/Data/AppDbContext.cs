@@ -18,7 +18,6 @@ namespace UniVest.Data
         public DbSet<Favorito> Favoritos { get; set; }
         public DbSet<Modalidade> Modalidades { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -35,6 +34,5 @@ namespace UniVest.Data
                 .Property(v => v.PrecoInscricao)
                 .HasPrecision(10, 2);
         }
-
     }
 }
