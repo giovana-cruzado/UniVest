@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using UniVest.Data;
 using UniVest.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UniVest.Controllers
 {
@@ -19,6 +20,7 @@ namespace UniVest.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Universidades.ToListAsync());
@@ -39,7 +41,7 @@ namespace UniVest.Controllers
             }
 
             return View(universidade);
-        }
+        }   
 
         public IActionResult Create()
         {

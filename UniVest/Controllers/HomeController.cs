@@ -18,6 +18,12 @@ public class HomeController : Controller
         _db = db;
     }
 
+
+    public IActionResult Login()
+    {
+        return View();
+    }
+    
     public IActionResult Index()
     {
         return View();
