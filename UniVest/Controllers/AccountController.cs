@@ -34,4 +34,39 @@ public class AccountController : Controller
         };
         return View(login);
     }
+
+    [HttpGet]
+    public IActionResult Cadastro()
+    {
+        return View(new CadastroVM());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Cadastro(CadastroVM model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        var usuario = new Usuario
+        {
+            Email = model.Email,
+            UserName = model.Email
+        };
+
+        var resultado = await _userManager.CreateAsync(usuario, model.Senha);
+
+        if (resultado.Succeeded)
+        {
+            await _signInManager.SignInAsync(usuario, isPersistent: false);
+            return RedirectToAction("Index", "Home");
+        }
+
+        foreach (var erro in resultado.Errors)
+        {
+            ModelState.AddModelError(string.Empty, erro.Description);
+        }
+
+        return View(model);
+    }
+
 }

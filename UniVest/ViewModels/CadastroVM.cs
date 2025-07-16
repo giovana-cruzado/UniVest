@@ -9,11 +9,6 @@ public class CadastroVM
     [StringLength(60, ErrorMessage = "O nome deve possuir no máximo 60 caracteres")]
     public string Nome { get; set; }
 
-    [DataType(DataType.Date)]
-    [Display(Name = "Data de nascimento", Prompt = "Informe sua data de nascimento")]
-    [Required(ErrorMessage = "Por favor, informe sua data de nascimento")]
-    public DateTime? DataNascimento { get; set; } = null;
-
     [Display(Prompt = "Informe seu email")]
     [Required(ErrorMessage = "Por favor, informe seu email")]
     [EmailAddress(ErrorMessage = "Por favor, informe um email válido")]
