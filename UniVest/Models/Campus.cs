@@ -12,6 +12,9 @@ namespace UniVest.Models
 
         [StringLength(200)]
         public string Endereco { get; set; }
+        
+        [StringLength(50)]
+        public string Estado { get; set; }
 
         public int UniversidadeId { get; set; }
 

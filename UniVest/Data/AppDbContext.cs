@@ -11,13 +11,14 @@ namespace UniVest.Data
         {
         }
 
+        public DbSet<Curso> Curso { get; set; }
         public DbSet<Universidade> Universidades { get; set; }
-        public DbSet<Campus> Campi { get; set; }
-        public DbSet<Curso> Cursos { get; set; }
-        public DbSet<Vestibular> Vestibulares { get; set; }
-        public DbSet<Favorito> Favoritos { get; set; }
-        public DbSet<Modalidade> Modalidades { get; set; }
-
+        public DbSet<Campus> Campus { get; set; }
+        public DbSet<CampusCurso> CampusCurso { get; set; }
+        public DbSet<Modalidade> Modalidade { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Favorito> Favorito { get; set; }
+        public DbSet<Vestibular> Vestibular { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
