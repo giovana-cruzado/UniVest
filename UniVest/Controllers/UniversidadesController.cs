@@ -76,7 +76,8 @@ namespace UniVest.Controllers
 
         public IActionResult BuscaCursos()
         {
-            return View();
+            CursoFiltroVM c = new();
+            return View(c);
         }
 
         public IActionResult Create()

@@ -1,26 +1,30 @@
 @model CursoFiltroVM
 @{
     ViewData["Title"] = "Busca de Cursos";
+    Layout = "~/Views/Universidades/_Layout.cshtml";
 }
 
 <h2>Seu futuro em um só lugar!</h2>
 
 <form method="get" asp-controller="Universidades" asp-action="BuscaCursos">
-    <select asp-for="CursoId" asp-items="@(new SelectList(Model.Cursos, "Id", "Nome"))">
+    <select asp-for="CursoId"
+            asp-items="@(new SelectList(Model?.Cursos ?? Enumerable.Empty<Curso>(), "Id", "Nome"))">
         <option value="">Curso</option>
     </select>
 
-    <select asp-for="UniversidadeId" asp-items="@(new SelectList(Model.Universidades, "Id", "Nome"))">
+    <select asp-for="UniversidadeId"
+            asp-items="@(new SelectList(Model?.Universidades ?? Enumerable.Empty<Universidade>(), "Id", "Nome"))">
         <option value="">Universidade</option>
     </select>
 
-    <select asp-for="CampusId" asp-items="@(new SelectList(Model.Campi, "Id", "Nome"))">
+    <select asp-for="CampusId"
+            asp-items="@(new SelectList(Model?.Campi ?? Enumerable.Empty<Campus>(), "Id", "Nome"))">
         <option value="">Campus</option>
     </select>
 
     <select asp-for="Estado">
         <option value="">Estado</option>
-        @foreach (var estado in Model.Estados)
+        @foreach (var estado in (Model?.Estados ?? Enumerable.Empty<string>()))
         {
             <option value="@estado">@estado</option>
         }
@@ -28,7 +32,7 @@
 
     <select asp-for="Modalidade">
         <option value="">Modalidade</option>
-        @foreach (var mod in Model.Modalidades)
+        @foreach (var mod in (Model?.Modalidades ?? Enumerable.Empty<string>()))
         {
             <option value="@mod">@mod</option>
         }
@@ -36,7 +40,7 @@
 
     <select asp-for="Periodo">
         <option value="">Período</option>
-        @foreach (var p in Model.Periodos)
+        @foreach (var p in (Model?.Periodos ?? Enumerable.Empty<string>()))
         {
             <option value="@p">@p</option>
         }
@@ -45,16 +49,14 @@
     <button type="submit">Filtrar</button>
 </form>
 
-<hr />
-
 <div class="cards">
-    @foreach (var item in Model.Resultados)
+    @foreach (var item in (Model?.Resultados ?? Enumerable.Empty<CampusCurso>()))
     {
         <div class="card">
-            <div class="tag">@item.Campus.Estado - @item.Modalidade.Nome</div>
-            <h3>@item.Curso.Nome</h3>
-            <p>@item.Campus.Nome</p>
-            <p>@item.Periodo.Nome</p>
+            <div class="tag">@item.Campus?.Estado - @item.Modalidade?.Nome</div>
+            <h3>@item.Campus?.Universidade?.Nome - @item.Curso?.Nome</h3>
+            <p>@item.Campus?.Nome</p>
+            <p>@item.Periodo</p>
         </div>
     }
 </div>

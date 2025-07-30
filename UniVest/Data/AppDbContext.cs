@@ -23,6 +23,7 @@ namespace UniVest.Data
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<CampusCurso>().HasKey(cc => new { cc.CampusId, cc.CursoId });
             builder.Entity<Usuario>().ToTable("Usuarios");
             builder.Entity<IdentityRole>().ToTable("Perfis");
             builder.Entity<IdentityUserRole<string>>().ToTable("UsuarioPerfis");
