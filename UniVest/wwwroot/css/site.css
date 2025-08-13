@@ -31,7 +31,7 @@ body {
 .logo-link {
   text-decoration: none;
   color: white;
-  cursor: pointer;
+  cursor: pointer; 
 }
 
 .container {

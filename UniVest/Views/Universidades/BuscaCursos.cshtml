@@ -4,12 +4,14 @@
     Layout = "~/Views/Universidades/_Layout.cshtml";
 }
 
-<h2>Seu futuro em um só lugar!</h2>
+<div class="banner">
+    Seu futuro em um só lugar!
+</div>
 
-<form method="get" asp-controller="Universidades" asp-action="BuscaCursos">
+<form method="get" asp-controller="Universidades" asp-action="BuscaCursos" class="filters">
     <select asp-for="CursoId"
             asp-items="@(new SelectList(Model?.Cursos ?? Enumerable.Empty<Curso>(), "Id", "Nome"))">
-        <option value="">Curso</option>
+        <option value="">Cursos</option>
     </select>
 
     <select asp-for="UniversidadeId"
@@ -45,18 +47,21 @@
             <option value="@p">@p</option>
         }
     </select>
-
-    <button type="submit">Filtrar</button>
 </form>
 
 <div class="cards">
     @foreach (var item in (Model?.Resultados ?? Enumerable.Empty<CampusCurso>()))
     {
         <div class="card">
-            <div class="tag">@item.Campus?.Estado - @item.Modalidade?.Nome</div>
+            <div class="card-header">
+                <span class="tag">@item.Campus?.Estado</span>
+                <span class="tag">@item.Modalidade?.Nome</span>
+            </div>
             <h3>@item.Campus?.Universidade?.Nome - @item.Curso?.Nome</h3>
             <p>@item.Campus?.Nome</p>
-            <p>@item.Periodo</p>
+            <a href="@Url.Action("Detalhes", "Universidades", new { id = item.Id })">
+                ➜
+            </a>
         </div>
     }
 </div>
