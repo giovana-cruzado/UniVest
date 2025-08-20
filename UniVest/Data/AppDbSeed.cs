@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using UniVest.Models;
-using UniVest.Data;
 using Microsoft.AspNetCore.Identity;
 
 namespace UniVest.Data
@@ -171,8 +170,8 @@ namespace UniVest.Data
         };
             foreach (var user in usuarios)
             {
-                PasswordHasher<IdentityUser> pass = new();
-                user.PasswordHash = pass.HashPassword(user, "123456");
+                PasswordHasher<Usuario> pass = new();
+                user.PasswordHash = pass.HashPassword(user, "Admin@123");
             }
             builder.Entity<Usuario>().HasData(usuarios);
             #endregion

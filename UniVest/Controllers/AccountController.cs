@@ -35,6 +35,34 @@ public class AccountController : Controller
         return View(login);
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(LoginVM model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var result = await _signInManager.PasswordSignInAsync(
+            model.Email, model.Senha, model.Lembrar, lockoutOnFailure: false);
+
+        if (result.Succeeded)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        ModelState.AddModelError("", "Login inválido.");
+        return View(model);
+    }
+
+
     [HttpGet]
     public IActionResult Cadastro()
     {
