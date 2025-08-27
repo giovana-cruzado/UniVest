@@ -35,6 +35,8 @@ namespace UniVest.Data
             builder.Entity<Vestibular>()
                 .Property(v => v.PrecoInscricao)
                 .HasPrecision(10, 2);
+
+            AppDbSeed seed = new(builder);
         }
     }
 }

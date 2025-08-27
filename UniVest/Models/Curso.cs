@@ -9,8 +9,6 @@ namespace UniVest.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
-        public int ModalidadeId { get; set; }
-        public Modalidade Modalidade { get; set; }
         
     }
 }
