@@ -1,3 +1,5 @@
+using System.Net.Mail;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UniVest.Models;
@@ -35,33 +37,61 @@ public class AccountController : Controller
         return View(login);
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login(LoginVM model)
+    public bool IsValidEmail(string email)
     {
-        if (!ModelState.IsValid)
+        try
         {
-            return View(model);
+            MailAddress m = new(email);
+            return true;
         }
-
-        var result = await _signInManager.PasswordSignInAsync(
-            model.Email, model.Senha, model.Lembrar, lockoutOnFailure: false);
-
-        if (result.Succeeded)
+        catch (FormatException)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
-            if (await _userManager.IsInRoleAsync(user, "Admin"))
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-
-            return RedirectToAction("Index", "Home");
+            return false;
         }
-
-        ModelState.AddModelError("", "Login inválido.");
-        return View(model);
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(LoginVM login)
+    {
+        if (ModelState.IsValid)
+        {
+            string userName = login.Email;
+            if (IsValidEmail(login.Email))
+            {
+                var user = await _userManager.FindByEmailAsync(login.Email);
+                if (user != null)
+                    userName = user.UserName;
+            }
+            
+            var result = await _signInManager.PasswordSignInAsync(
+                userName, login.Senha, login.Lembrar, lockoutOnFailure: true
+            );
+
+            if (result.Succeeded) {
+                _logger.LogInformation($"Usuário {login.Email} está bloqueado");
+                ModelState.AddModelError("", "Sua conta está bloqueada, aguarde alguns minutos e tente novamente");
+            }
+            
+            else
+            if (result.IsNotAllowed) {
+                _logger.LogWarning($"Usuário {login.Email} não confirmou sua conta");
+                ModelState.AddModelError(string.Empty, "Sua conta não está confirmada, verifique seu email.");
+            }
+            else
+                ModelState.AddModelError(string.Empty, "Usuário e/ou senha inválidos");
+        }
+        return View(login);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Logout()
+    {
+        _logger.LogInformation($"Usuário {ClaimTypes.Email} fez logoff");
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
 
     [HttpGet]
     public IActionResult Cadastro()
