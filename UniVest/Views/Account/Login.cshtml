@@ -1,61 +1,45 @@
 @model UniVest.ViewModels.LoginVM
 @{
-    Layout = null;
+    ViewData["Title"] = "Login";
 }
 
-<!DOCTYPE html>
-<html lang="pt-br">
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css">
+}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login - UniVest</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-
-<body>
-    <div class="navbar">
-        <a asp-controller="Home" asp-action="Index" class="logo-link">UniVest</a>
+<div class="container">
+    <div class="login-box">
+        <h2>LOGIN</h2>
+        <form asp-action="Login" asp-controller="Account" method="post">
+            <div asp-validation-summary="ModelOnly" hidden></div>
+            <input asp-for="Email" placeholder="Email" required />
+            <input asp-for="Senha" type="password" placeholder="Senha" required />
+            <div class="checkbox">
+                <input asp-for="Lembrar" type="checkbox" id="manter" />
+                <label for="manter">Manter Conectado</label>
+            </div>
+            <input type="hidden" asp-for="UrlRetorno" />
+            <button type="submit">Entrar</button>
+            <div class="links"><a asp-action="EsqueciSenha" asp-controller="Account">Esqueceu sua senha?</a></div>
+            <div class="links bottom">Novo por aqui?
+                <a asp-action="Cadastro" asp-controller="Account">Cadastrar-se</a>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="container">
-        <div class="login-box">
-            <h2>LOGIN</h2>
-            <form asp-action="Login" asp-controller="Account" method="post">
-                <div asp-validation-summary="ModelOnly" hidden></div>
-                <input asp-for="Email" placeholder="Email" required />
-                <input asp-for="Senha" type="password" placeholder="Senha" required />
-                <div class="checkbox">
-                    <input asp-for="Lembrar" type="checkbox" id="manter" />
-                    <label for="manter">Manter Conectado</label>
-                </div>
-                <input type="hidden" asp-for="UrlRetorno" />
-                <button type="submit">Entrar</button>
-                <div class="links"><a asp-action="EsqueciSenha" asp-controller="Account">Esqueceu sua senha?</a></div>
-                <div class="links bottom">Novo por aqui?
-                    <a asp-action="Cadastro" asp-controller="Account">Cadastrar-se</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-        <script type="text/javascript">
-            let mensagemErro = '';
-            $(".validation-summary-errors ul li").each(function () {
-                mensagemErro += $(this).text() + '<br />';
-            });
-            if (mensagemErro != '')
-                swal.fire(
-                    'Acesso Negado',
-                    mensagemErro,
-                    'error'
-                );
-        </script>
-    }
-</body>
-
-</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        let mensagemErro = '';
+        $(".validation-summary-errors ul li").each(function () {
+            mensagemErro += $(this).text() + '<br />';
+        });
+        if (mensagemErro != '')
+            swal.fire(
+                'Acesso Negado',
+                mensagemErro,
+                'error'
+            );
+    </script>
+}

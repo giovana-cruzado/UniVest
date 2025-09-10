@@ -9,15 +9,14 @@
 
 @if (!SignInManager.IsSignedIn(User))
 {
-    <a asp-action="Login" asp-controller="Account">Login>
-        <img src="~/img/usuarios/no-photo.png" width="40" height="40" class="object-fit-cover rounded-5">
-    </a>
+    <a asp-action="Login" asp-controller="Account">Login</a>
 }
-
+else
+{
     <div class="nav-item dropdown me-2">
-        <button class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src='@(usuario.Foto ?? Url.Content("~/img/usuarios/no-photo.png"))' width="40" height="40"
-                class="object-fit-cover rounded-5">
+        <button class="nav-link text-white dropdown-toggle250
+        "type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src='@(usuario.Foto ?? Url.Content("~/img/usuarios/no-photo.png"))' width="40" height="40" class="object-fit-cover rounded-5">
         </button>
         <ul class="dropdown-menu" style="position:absolute!important; margin-left: -200px!important; width:250px;">
             @if (User.IsInRole("Administrador") || User.IsInRole("Funcionário"))

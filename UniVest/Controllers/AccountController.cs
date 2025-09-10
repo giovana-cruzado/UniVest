@@ -68,13 +68,20 @@ public class AccountController : Controller
                 userName, login.Senha, login.Lembrar, lockoutOnFailure: true
             );
 
-            if (result.Succeeded) {
-                _logger.LogInformation($"Usuário {login.Email} está bloqueado");
-                ModelState.AddModelError("", "Sua conta está bloqueada, aguarde alguns minutos e tente novamente");
+             if (result.Succeeded)
+            {
+                _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
+                return LocalRedirect(login.UrlRetorno);
             }
             
+            if (result.IsLockedOut)
+            {
+                _logger.LogWarning($"Usuário {login.Email} está bloqueado");
+                ModelState.AddModelError("", "Sua conta está bloqueada, aguarde alguns minutos e tente novamente.");
+            }
             else
-            if (result.IsNotAllowed) {
+            if (result.IsNotAllowed) 
+            {
                 _logger.LogWarning($"Usuário {login.Email} não confirmou sua conta");
                 ModelState.AddModelError(string.Empty, "Sua conta não está confirmada, verifique seu email.");
             }
@@ -97,6 +104,11 @@ public class AccountController : Controller
     public IActionResult Cadastro()
     {
         return View(new CadastroVM());
+    }
+
+    public IActionResult AccessDenied()
+    {
+        return View();
     }
 
     [HttpPost]
