@@ -99,3 +99,10 @@ p {
 .btn-secondary {
   background-color: #683CE7;
 }
+
+.dropdown-item {
+  justify-content: start !important;
+  color: black !important;
+  font-size: 14px !important;
+
+}

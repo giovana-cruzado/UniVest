@@ -1,2 +1,5 @@
 git config --global user.name giovana-cruzado
 git config --global user.email giovanarusbe@gmail.com
+
+dotnet aspnet-codegenerator controller -name UniversidadesController --model Categoria --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
