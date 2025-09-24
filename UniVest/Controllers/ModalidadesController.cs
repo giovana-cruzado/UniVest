@@ -10,22 +10,22 @@ using UniVest.Models;
 
 namespace UniVest.Controllers
 {
-    public class UniversidadesController : Controller
+    public class ModalidadesController : Controller
     {
         private readonly AppDbContext _context;
 
-        public UniversidadesController(AppDbContext context)
+        public ModalidadesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Universidades
+        // GET: Modalidades
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Universidades.ToListAsync());
+            return View(await _context.Modalidade.ToListAsync());
         }
 
-        // GET: Universidades/Details/5
+        // GET: Modalidades/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades
+            var modalidade = await _context.Modalidade
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (universidade == null)
+            if (modalidade == null)
             {
                 return NotFound();
             }
 
-            return View(universidade);
+            return View(modalidade);
         }
 
-        // GET: Universidades/Create
+        // GET: Modalidades/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Universidades/Create
+        // POST: Modalidades/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sigla,Cidade,Estado")] Universidade universidade)
+        public async Task<IActionResult> Create([Bind("Id,Nome")] Modalidade modalidade)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(universidade);
+                _context.Add(modalidade);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(universidade);
+            return View(modalidade);
         }
 
-        // GET: Universidades/Edit/5
+        // GET: Modalidades/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades.FindAsync(id);
-            if (universidade == null)
+            var modalidade = await _context.Modalidade.FindAsync(id);
+            if (modalidade == null)
             {
                 return NotFound();
             }
-            return View(universidade);
+            return View(modalidade);
         }
 
-        // POST: Universidades/Edit/5
+        // POST: Modalidades/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sigla,Cidade,Estado")] Universidade universidade)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Modalidade modalidade)
         {
-            if (id != universidade.Id)
+            if (id != modalidade.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace UniVest.Controllers
             {
                 try
                 {
-                    _context.Update(universidade);
+                    _context.Update(modalidade);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UniversidadeExists(universidade.Id))
+                    if (!ModalidadeExists(modalidade.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace UniVest.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(universidade);
+            return View(modalidade);
         }
 
-        // GET: Universidades/Delete/5
+        // GET: Modalidades/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades
+            var modalidade = await _context.Modalidade
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (universidade == null)
+            if (modalidade == null)
             {
                 return NotFound();
             }
 
-            return View(universidade);
+            return View(modalidade);
         }
 
-        // POST: Universidades/Delete/5
+        // POST: Modalidades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var universidade = await _context.Universidades.FindAsync(id);
-            if (universidade != null)
+            var modalidade = await _context.Modalidade.FindAsync(id);
+            if (modalidade != null)
             {
-                _context.Universidades.Remove(universidade);
+                _context.Modalidade.Remove(modalidade);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UniversidadeExists(int id)
+        private bool ModalidadeExists(int id)
         {
-            return _context.Universidades.Any(e => e.Id == id);
+            return _context.Modalidade.Any(e => e.Id == id);
         }
     }
 }

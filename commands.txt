@@ -1,5 +1,14 @@
 git config --global user.name giovana-cruzado
 git config --global user.email giovanarusbe@gmail.com
 
-dotnet aspnet-codegenerator controller -name UniversidadesController --model Categoria --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+dotnet aspnet-codegenerator controller -name UniversidadesController --model Universidade --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
 
+dotnet aspnet-codegenerator controller -name CursosController --model Curso --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name CampusController --model Campus --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name ModalidadesController --model Modalidade --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name PeriodosController --model Periodo --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name VestibularesController --model Vestibular --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers

@@ -78,20 +78,23 @@ public class AppDbSeed
         List<Campus> campus = new() {
             new Campus {
                 Id = 1,
+                Estado = "São Paulo",
                 Nome = "Campinas",
-                Endereco = "",
+                Cidade = "",
                 UniversidadeId = 3,
             },
             new Campus {
                 Id = 2,
+                Estado = "São Paulo",
                 Nome = "São Paulo",
-                Endereco = "",
+                Cidade = "",
                 UniversidadeId = 1,
             },
             new Campus {
                 Id = 3,
+                Estado = "São Paulo",
                 Nome = "Bauru",
-                Endereco = "",
+                Cidade = "",
                 UniversidadeId = 2,
             }
         };

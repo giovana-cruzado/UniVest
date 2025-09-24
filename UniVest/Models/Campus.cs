@@ -11,7 +11,7 @@ namespace UniVest.Models
         public string Nome { get; set; }
 
         [StringLength(200)]
-        public string Endereco { get; set; }
+        public string Cidade { get; set; }
         
         [StringLength(50)]
         public string Estado { get; set; }

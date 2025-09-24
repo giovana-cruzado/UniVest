@@ -1,14 +1,16 @@
 @model CursoFiltroVM
 @{
     ViewData["Title"] = "UniVest";
-    Layout = "~/Views/Universidades/_Layout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/filtros.css" />
 }
 
 <div class="banner">
     Seu futuro em um só lugar!
 </div>
 
-<form method="get" asp-controller="Universidades" asp-action="BuscaCursos" class="filters">
+<form  asp-controller="Home" asp-action="Cursos" class="filters">
     <select asp-for="CursoId"
             asp-items="@(new SelectList(Model?.Cursos ?? Enumerable.Empty<Curso>(), "Id", "Nome"))">
         <option value="">Cursos</option>
@@ -47,6 +49,7 @@
             <option value="@p">@p</option>
         }
     </select>
+    <button type="submit">Filtrar</button>
 </form>
 
 <div class="cards">

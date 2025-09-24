@@ -10,22 +10,22 @@ using UniVest.Models;
 
 namespace UniVest.Controllers
 {
-    public class UniversidadesController : Controller
+    public class CursosController : Controller
     {
         private readonly AppDbContext _context;
 
-        public UniversidadesController(AppDbContext context)
+        public CursosController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Universidades
+        // GET: Cursos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Universidades.ToListAsync());
+            return View(await _context.Curso.ToListAsync());
         }
 
-        // GET: Universidades/Details/5
+        // GET: Cursos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades
+            var curso = await _context.Curso
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (universidade == null)
+            if (curso == null)
             {
                 return NotFound();
             }
 
-            return View(universidade);
+            return View(curso);
         }
 
-        // GET: Universidades/Create
+        // GET: Cursos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Universidades/Create
+        // POST: Cursos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sigla,Cidade,Estado")] Universidade universidade)
+        public async Task<IActionResult> Create([Bind("Id,Nome")] Curso curso)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(universidade);
+                _context.Add(curso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(universidade);
+            return View(curso);
         }
 
-        // GET: Universidades/Edit/5
+        // GET: Cursos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades.FindAsync(id);
-            if (universidade == null)
+            var curso = await _context.Curso.FindAsync(id);
+            if (curso == null)
             {
                 return NotFound();
             }
-            return View(universidade);
+            return View(curso);
         }
 
-        // POST: Universidades/Edit/5
+        // POST: Cursos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sigla,Cidade,Estado")] Universidade universidade)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Curso curso)
         {
-            if (id != universidade.Id)
+            if (id != curso.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace UniVest.Controllers
             {
                 try
                 {
-                    _context.Update(universidade);
+                    _context.Update(curso);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UniversidadeExists(universidade.Id))
+                    if (!CursoExists(curso.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace UniVest.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(universidade);
+            return View(curso);
         }
 
-        // GET: Universidades/Delete/5
+        // GET: Cursos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace UniVest.Controllers
                 return NotFound();
             }
 
-            var universidade = await _context.Universidades
+            var curso = await _context.Curso
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (universidade == null)
+            if (curso == null)
             {
                 return NotFound();
             }
 
-            return View(universidade);
+            return View(curso);
         }
 
-        // POST: Universidades/Delete/5
+        // POST: Cursos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var universidade = await _context.Universidades.FindAsync(id);
-            if (universidade != null)
+            var curso = await _context.Curso.FindAsync(id);
+            if (curso != null)
             {
-                _context.Universidades.Remove(universidade);
+                _context.Curso.Remove(curso);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UniversidadeExists(int id)
+        private bool CursoExists(int id)
         {
-            return _context.Universidades.Any(e => e.Id == id);
+            return _context.Curso.Any(e => e.Id == id);
         }
     }
 }
