@@ -8,6 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using UniVest.Data;
 using UniVest.Models;
 
+
+// campuscurso
+// include (curso)
+// include (modalidade)
+// include (campus)
+// thenInclude (universidade)
+
 namespace UniVest.Controllers
 {
     public class CampusController : Controller

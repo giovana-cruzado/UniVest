@@ -10,6 +10,5 @@ namespace UniVest.Models
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
-        public List<Curso> Cursos { get; set; }
     }
 }
