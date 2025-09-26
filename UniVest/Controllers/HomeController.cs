@@ -27,7 +27,20 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Cursos()
     {
-        CursoFiltroVM c = new();
+        CursoFiltroVM c = new() {
+            Cursos = _db.Curso.ToList(),
+            Universidades = _db.Universidades.ToList(),
+            Campi = _db.Campus.ToList(),
+            Estados = _db.Campus.Select(c => c.Estado).Distinct().ToList(),
+            Modalidades = _db.Modalidade.Select(m => m.Nome).Distinct().ToList(),
+            Periodos = Enum.GetNames(typeof(Periodo)).ToList(),
+            Resultados = _db.CampusCurso
+                .Include(cc => cc.Curso)
+                .Include(cc => cc.Campus)
+                    .ThenInclude(c => c.Universidade)
+                .Include(cc => cc.Modalidade)
+                .ToList()
+        };
         return View(c);
     }
 
@@ -72,7 +85,7 @@ public class HomeController : Controller
 
         viewModel.Resultados = query.ToList();
 
-        return RedirectToAction("BuscaCursos");
+        return View(viewModel);
     }
 
     public IActionResult Privacy()
