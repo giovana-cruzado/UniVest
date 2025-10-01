@@ -1,18 +1,29 @@
 ﻿@{
-    ViewData["Title"] = "";
+    ViewData["Title"] = "Index";
 }
 
-    <div class="container">
-        <h1>UniVest: Onde tudo<br />sobre vestibulares<br /> acontece</h1>
-        <p>
-            Um site para organização de vestibulares tradicionais e seriados do Brasil, com datas, cursos, universidades
-            e mais. Aqui você encontra todas as informações necessárias para se preparar e se inscrever nos principais
-            vestibulares do país.
-        </p>
-        <div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 align-self-center">
+            <h1>UniVest: Onde tudo<br />sobre vestibulares<br /> acontece</h1>
+            <p>
+                Um site para organização de vestibulares tradicionais e seriados do Brasil, com datas, cursos,
+                universidades
+                e mais. Aqui você encontra todas as informações necessárias para se preparar e se inscrever nos
+                principais
+                vestibulares do país.
+            </p>
             <div>
-                <a asp-controller="Account" asp-action="Login" class="btn">Login</a>
-                <a asp-controller="Home" asp-action="Cursos" class="btn btn-secondary">Entrar sem Login</a>
+                <div>
+                    <a asp-controller="Account" asp-action="Login" class="btn">Login</a>
+                    <a asp-controller="Home" asp-action="Cursos" class="btn btn-secondary">Entrar sem Login</a>
+                </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <img src="~/img/mapa.png"
+                style="width: 100%;"
+                alt="Mapa">
+        </div>
     </div>
+</div>

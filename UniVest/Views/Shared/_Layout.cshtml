@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>UniVest @ViewData["Title"]</title>
+    <title>UniVest @ViewData[""]</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Quicksand&display=swap"
@@ -19,9 +19,12 @@
 
 <body>
     <div class="navbar">
-        <div>UniVest</div>
+        <div>
+            <a asp-action="Index" asp-controller="Home">UniVest</a>
+        </div>
         <partial name="_LoginPartial"></partial>
     </div>
+
 
     @RenderBody()
 
