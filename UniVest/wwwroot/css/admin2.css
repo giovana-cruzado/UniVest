@@ -1,0 +1,52 @@
+/* Navbar fixa no topo */
+.sb-topnav {
+    height: 56px;
+    z-index: 1039; /* acima da sidebar */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Marca (logo ou nome do sistema) */
+.sb-topnav .navbar-brand {
+    font-weight: 600;
+    color: #ffffff;
+    padding-left: 1rem;
+}
+
+/* Botão de menu (hambúrguer) */
+#sidebarToggle {
+    color: #ffffff;
+    border: none;
+}
+
+#sidebarToggle:hover {
+    color: #adb5bd;
+}
+
+/* Ícones */
+.sb-topnav i {
+    font-size: 1.2rem;
+}
+
+/* Dropdown no canto direito */
+.navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #adb5bd;
+}
+
+.dropdown-menu {
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Divider do menu dropdown */
+.dropdown-divider {
+    margin: 0.5rem 0;
+    border-color: #dee2e6;
+}
