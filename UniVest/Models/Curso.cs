@@ -9,6 +9,5 @@ namespace UniVest.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
-        
     }
 }
