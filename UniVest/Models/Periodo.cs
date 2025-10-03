@@ -1,4 +1,5 @@
 namespace UniVest.Models
+
 {
     public enum Periodo
     {

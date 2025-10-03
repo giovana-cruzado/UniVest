@@ -5,6 +5,7 @@ using UniVest.Data;
 using Microsoft.EntityFrameworkCore;
 using UniVest.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using UniVest.Helpers;
 
 namespace UniVest.Controllers;
 
@@ -24,10 +25,67 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    public async Task<IActionResult> Detalhes(int id)
+    {
+        var campusCurso = await _db.CampusCurso
+            .Include(cc => cc.Curso)
+            .Include(cc => cc.Modalidade)
+            .Include(cc => cc.Periodo)
+            .Include(cc => cc.Campus)
+                .ThenInclude(c => c.Universidade)
+            .FirstOrDefaultAsync(cc => cc.Id == id);
+
+        if (campusCurso == null)
+        {
+            return NotFound();
+        }
+
+        var viewModel = new Detalhe
+        {
+            UniversidadeNome = campusCurso.Campus.Universidade.Nome,
+            CursoNome = campusCurso.Curso.Nome,
+            Estado = campusCurso.Campus.Estado,
+            Periodo = campusCurso.Periodo.Nome,
+            CampusNome = campusCurso.Campus.Nome,
+            Modalidade = campusCurso.Modalidade.Nome,
+            DuracaoSemestre = campusCurso.Duracao,
+            Img = "/images/placeholder-camera.png",
+            EditalUni = "https://link-edital.com", // Ajuste conforme seu modelo
+            EditalProvao = "https://link-provao.com"
+        };
+
+        return View(viewModel);
+    }
+
+    private string GetNomeDoPeriodo(Periodo periodo)
+    {
+        switch (periodo)
+        {
+            case Periodo.Matutino:
+                return "Matutino";
+            case Periodo.Vespertino:
+                return "Vespertino";
+            case Periodo.Noturno:
+                return "Noturno"; // Você pode customizar como quiser!
+            case Periodo.Integral:
+                return "Integral";
+            case Periodo.Diurno:
+                return "Diurno";
+            default:
+                return "Não informado"; // Uma opção padrão para segurança
+        }
+    }
+
     [HttpGet]
     public IActionResult Cursos()
     {
-        CursoFiltroVM c = new() {
+        CursoFiltroVM c = new()
+        {
             Cursos = _db.Curso.ToList(),
             Universidades = _db.Universidades.ToList(),
             Campi = _db.Campus.ToList(),
@@ -86,11 +144,6 @@ public class HomeController : Controller
         viewModel.Resultados = query.ToList();
 
         return View(viewModel);
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
     }
 
     public IActionResult Error()
