@@ -112,7 +112,8 @@ public class AppDbSeed
                 CampusId = 1,
                 CursoId = 1,
                 Periodo = Periodo.Noturno,
-                ModalidadeId = 1
+                ModalidadeId = 1,
+                Duracao = 8
             },
             // Licenciatura em matemática em Bauru
             new CampusCurso {
@@ -120,7 +121,8 @@ public class AppDbSeed
                 CampusId = 3,
                 CursoId = 2,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 2
+                ModalidadeId = 2,
+                Duracao = 8
             },
             // Licenciatura em matemática em SP
             new CampusCurso {

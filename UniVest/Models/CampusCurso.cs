@@ -27,4 +27,7 @@ public class CampusCurso
     [Required]
     public Periodo Periodo { get; set; }
 
+    [Required]
+    public int Duracao { get; set; }
+
 }
