@@ -101,21 +101,21 @@ public class AppDbSeed
         builder.Entity<Campus>().HasData(campus);
 
         // 1- USP  2- UNESP  3- UNICAMP
-        // 1- Campinas  2- São Paulo  3- Bauru
         // 1- Administração  2- Matemática 3- Arquitetura e Urbanismo
+        // 1- Campinas  2- São Paulo  3- Bauru
         // 1- Bacharelado  2- Licenciatura  3- Tecnólogo
 
         List<CampusCurso> campuscurso = new() {
             new CampusCurso {
-            // Bacharelado em administração em Campinas
+            // Bacharelado em administração na UNICAMP em Campinas
                 Id = 1,
                 CampusId = 1,
                 CursoId = 1,
                 Periodo = Periodo.Noturno,
                 ModalidadeId = 1,
-                Duracao = 8
+                Duracao = 8 //semestres
             },
-            // Licenciatura em matemática em Bauru
+            // Licenciatura em matemática na UNESP em Bauru
             new CampusCurso {
                 Id = 2,
                 CampusId = 3,
@@ -124,21 +124,23 @@ public class AppDbSeed
                 ModalidadeId = 2,
                 Duracao = 8
             },
-            // Licenciatura em matemática em SP
+            // Licenciatura em matemática na USP em SP
             new CampusCurso {
                 Id = 3,
                 CampusId = 2,
                 CursoId = 2,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 2
+                ModalidadeId = 2,
+                Duracao = 8
             },
-            // Bacharelado em Arq e Urb 
+            // Bacharelado em Arq e Urb na USP em SP
             new CampusCurso {
                 Id = 4,
                 CampusId = 2,
                 CursoId = 3,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 1
+                ModalidadeId = 1,
+                Duracao = 10
             },
         };
         builder.Entity<CampusCurso>().HasData(campuscurso);
