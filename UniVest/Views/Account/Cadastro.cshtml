@@ -11,12 +11,14 @@
         <h2>CADASTRO</h2>
         <form>
             <input type="text" placeholder="Email" required />
+            <input type="text" placeholder="Nome" required />
             <input type="password" placeholder="Senha" required />
+            <input type="password" placeholder="Confirme a senha" required />
             <div class="checkbox">
                 <input type="checkbox" id="manter" />
                 <label for="manter">Manter Conectado</label>
             </div>
-            <button type="submit">Entrar</button>
+             <a asp-controller="Home" asp-action="Cursos" class="btn">Entrar</a>
             <div class="links"><a href="#">Esqueceu sua senha?</a></div>
             <div class="links bottom">Já tem uma conta? <a href="/Account/Login">Faça login</a></div>
         </form>

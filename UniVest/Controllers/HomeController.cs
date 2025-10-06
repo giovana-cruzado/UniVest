@@ -32,13 +32,12 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Detalhes(int id)
     {
-        var campusCurso = await _db.CampusCurso
-            .Include(cc => cc.Curso)
-            .Include(cc => cc.Modalidade)
-            .Include(cc => cc.Periodo)
-            .Include(cc => cc.Campus)
-                .ThenInclude(c => c.Universidade)
-            .FirstOrDefaultAsync(cc => cc.Id == id);
+         var campusCurso = await _db.CampusCurso
+        .Include(cc => cc.Curso)
+        .Include(cc => cc.Modalidade)
+        .Include(cc => cc.Campus)
+            .ThenInclude(c => c.Universidade)
+        .FirstOrDefaultAsync(cc => cc.Id == id);
 
         if (campusCurso == null)
         {
@@ -50,13 +49,13 @@ public class HomeController : Controller
             UniversidadeNome = campusCurso.Campus.Universidade.Nome,
             CursoNome = campusCurso.Curso.Nome,
             Estado = campusCurso.Campus.Estado,
-            Periodo = campusCurso.Periodo.Nome,
+            Periodo = campusCurso.Periodo.GetDisplayName(),
             CampusNome = campusCurso.Campus.Nome,
             Modalidade = campusCurso.Modalidade.Nome,
             DuracaoSemestre = campusCurso.Duracao,
             Img = "/images/placeholder-camera.png",
-            EditalUni = "https://link-edital.com", // Ajuste conforme seu modelo
-            EditalProvao = "https://link-provao.com"
+            EditalUni = "", 
+            EditalProvao = ""
         };
 
         return View(viewModel);
@@ -71,14 +70,15 @@ public class HomeController : Controller
             case Periodo.Vespertino:
                 return "Vespertino";
             case Periodo.Noturno:
-                return "Noturno"; // Você pode customizar como quiser!
+                return "Noturno"; 
             case Periodo.Integral:
                 return "Integral";
             case Periodo.Diurno:
                 return "Diurno";
             default:
-                return "Não informado"; // Uma opção padrão para segurança
+                return "Não informado";
         }
+        
     }
 
     [HttpGet]
