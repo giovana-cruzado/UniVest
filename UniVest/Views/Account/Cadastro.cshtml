@@ -1,3 +1,4 @@
+@model UniVest.ViewModels.CadastroVM;
 @{
     ViewData["Title"] = "Cadastro";
 }
@@ -9,18 +10,35 @@
 <div class="container">
     <div class="login-box">
         <h2>CADASTRO</h2>
-        <form>
-            <input type="text" placeholder="Email" required />
-            <input type="text" placeholder="Nome" required />
-            <input type="password" placeholder="Senha" required />
-            <input type="password" placeholder="Confirme a senha" required />
+        <form asp-action="Cadastro" method="post">
+            <div asp-validation-summary="ModelOnly" hidden></div>
+            <input asp-for="Email" placeholder="Email" required />
+            <input asp-for="Nome" placeholder="Nome" required />
+            <input asp-for="Senha" placeholder="Senha" required />
+            <input asp-for="ConfirmacaoSenha" placeholder="Confirme a senha" required />
             <div class="checkbox">
                 <input type="checkbox" id="manter" />
                 <label for="manter">Manter Conectado</label>
             </div>
-             <a asp-controller="Home" asp-action="Cursos" class="btn">Entrar</a>
+            <button type="submit">Criar Conta</button>
             <div class="links"><a href="#">Esqueceu sua senha?</a></div>
             <div class="links bottom">Já tem uma conta? <a href="/Account/Login">Faça login</a></div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        let mensagemErro = '';
+        $(".validation-summary-errors ul li").each(function () {
+            mensagemErro += $(this).text() + '<br />';
+        });
+        if (mensagemErro != '')
+            swal.fire(
+                'Acesso Negado',
+                mensagemErro,
+                'error'
+            );
+    </script>
+}

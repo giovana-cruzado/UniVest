@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UniVest.Models;
 using UniVest.ViewModels;
+using UniVest.Data;
+using UniVest.Helpers;
 
 namespace UniVest.Controllers;
 
@@ -13,17 +15,20 @@ public class AccountController : Controller
     private readonly SignInManager<Usuario> _signInManager;
     private readonly UserManager<Usuario> _userManager;
     private readonly IWebHostEnvironment _host;
+    private readonly AppDbContext  _db;
     public AccountController(
         ILogger<AccountController> logger,
         SignInManager<Usuario> signInManager,
         UserManager<Usuario> userManager,
-        IWebHostEnvironment host
+        IWebHostEnvironment host,
+        AppDbContext db
     )
     {
         _logger = logger;
         _signInManager = signInManager;
         _userManager = userManager;
         _host = host;
+        _db = db;
     }
 
     [HttpGet]
@@ -35,19 +40,6 @@ public class AccountController : Controller
             UrlRetorno = returnUrl ?? Url.Content("~/")
         };
         return View(login);
-    }
-
-    public bool IsValidEmail(string email)
-    {
-        try
-        {
-            MailAddress m = new(email);
-            return true;
-        }
-        catch (FormatException)
-        {
-            return false;
-        }
     }
 
     [HttpPost]
@@ -63,24 +55,24 @@ public class AccountController : Controller
                 if (user != null)
                     userName = user.UserName;
             }
-            
+
             var result = await _signInManager.PasswordSignInAsync(
                 userName, login.Senha, login.Lembrar, lockoutOnFailure: true
             );
 
-             if (result.Succeeded)
+            if (result.Succeeded)
             {
                 _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
                 return LocalRedirect(login.UrlRetorno);
             }
-            
+
             if (result.IsLockedOut)
             {
                 _logger.LogWarning($"Usuário {login.Email} está bloqueado");
                 ModelState.AddModelError("", "Sua conta está bloqueada, aguarde alguns minutos e tente novamente.");
             }
             else
-            if (result.IsNotAllowed) 
+            if (result.IsNotAllowed)
             {
                 _logger.LogWarning($"Usuário {login.Email} não confirmou sua conta");
                 ModelState.AddModelError(string.Empty, "Sua conta não está confirmada, verifique seu email.");
@@ -112,31 +104,59 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Cadastro(CadastroVM model)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Cadastro(CadastroVM cadastro)
     {
-        if (!ModelState.IsValid)
-            return View(model);
-
-        var usuario = new Usuario
+        if (ModelState.IsValid)
         {
-            Email = model.Email,
-            UserName = model.Email
-        };
+            var usuario = Activator.CreateInstance<Usuario>();
+            usuario.Nome = cadastro.Nome;
+            usuario.UserName = cadastro.Email;
+            usuario.NormalizedUserName = cadastro.Email.ToUpper();
+            usuario.Email = cadastro.Email;
+            usuario.NormalizedEmail = cadastro.Email.ToUpper();
+            usuario.EmailConfirmed = true;
+            var result = await _userManager.CreateAsync(usuario, cadastro.Senha);
 
-        var resultado = await _userManager.CreateAsync(usuario, model.Senha);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation($"Novo usuário registrado com o email {cadastro.Email}.");
 
-        if (resultado.Succeeded)
-        {
-            await _signInManager.SignInAsync(usuario, isPersistent: false);
-            return RedirectToAction("Index", "Home");
+                await _userManager.AddToRoleAsync(usuario, "Usuário");
+
+                if (cadastro.Foto != null)
+                {
+                    string nomeArquivo = usuario.Id + Path.GetExtension(cadastro.Foto.FileName);
+                    string caminho = Path.Combine(_host.WebRootPath, @"img\usuarios");
+                    string novoArquivo = Path.Combine(caminho, nomeArquivo);
+                    using (var stream = new FileStream(novoArquivo, FileMode.Create))
+                    {
+                        cadastro.Foto.CopyTo(stream);
+                    }
+                    usuario.Foto = @"\img\usuarios\" + nomeArquivo;
+                    await _db.SaveChangesAsync();
+                }
+
+                TempData["Success"] = "Conta Criada com Sucesso!";
+                return RedirectToAction(nameof(Login));
+            }
+
+            foreach (var error in result.Errors)
+                ModelState.AddModelError(string.Empty, TranslateIdentityErrors.TranslateErrorMessage(error.Code));
         }
-
-        foreach (var erro in resultado.Errors)
-        {
-            ModelState.AddModelError(string.Empty, erro.Description);
-        }
-
-        return View(model);
+        return View(cadastro);
     }
 
+    public bool IsValidEmail(string email)
+    {
+        try
+        {
+            MailAddress m = new(email);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+    }
 }
