@@ -78,7 +78,6 @@ public class HomeController : Controller
             default:
                 return "Não informado";
         }
-        
     }
 
     [HttpGet]

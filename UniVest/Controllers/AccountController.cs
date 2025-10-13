@@ -63,7 +63,8 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
-                return LocalRedirect(login.UrlRetorno);
+                //return LocalRedirect(login.UrlRetorno);
+                return RedirectToAction("Cursos", "Home");
             }
 
             if (result.IsLockedOut)
