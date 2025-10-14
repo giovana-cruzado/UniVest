@@ -11,7 +11,6 @@ public class Detalhe
         public int DuracaoSemestre { get; set; }
         public string Img { get; set; }
 
-        // Links para os editais
         public string EditalUni { get; set; }
         public string EditalProvao { get; set; }
 }
