@@ -10,12 +10,9 @@
     <hr />
 
     <div class="row">
-        <!-- Coluna da Imagem (se houver) -->
         <div class="col-md-4">
             <img src="@Model.Img" alt="Imagem do curso" class="img-fluid rounded shadow-sm" />
         </div>
-
-        <!-- Coluna dos Detalhes do Curso -->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -39,7 +36,6 @@
                 </div>
             </div>
 
-            <!-- Seção de Editais e Documentos -->
             <div class="mt-4">
                 <h5>Documentos Importantes</h5>
                 @if (!string.IsNullOrEmpty(Model.EditalUni))

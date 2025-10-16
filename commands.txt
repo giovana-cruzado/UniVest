@@ -12,3 +12,5 @@ dotnet aspnet-codegenerator controller -name ModalidadesController --model Modal
 dotnet aspnet-codegenerator controller -name PeriodosController --model Periodo --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
 
 dotnet aspnet-codegenerator controller -name VestibularesController --model Vestibular --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name CampusCursoController --model CampusCurso --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers

@@ -4,6 +4,7 @@ namespace UniVest.Models
 {
     public class Curso
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

@@ -61,25 +61,6 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
-    private string GetNomeDoPeriodo(Periodo periodo)
-    {
-        switch (periodo)
-        {
-            case Periodo.Matutino:
-                return "Matutino";
-            case Periodo.Vespertino:
-                return "Vespertino";
-            case Periodo.Noturno:
-                return "Noturno"; 
-            case Periodo.Integral:
-                return "Integral";
-            case Periodo.Diurno:
-                return "Diurno";
-            default:
-                return "Não informado";
-        }
-    }
-
     [HttpGet]
     public IActionResult Cursos()
     {
