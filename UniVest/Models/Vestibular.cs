@@ -26,7 +26,8 @@ namespace UniVest.Models
         public decimal PrecoInscricao { get; set; }
 
         [StringLength(200)]
-        public string Edital { get; set; }
+        public string EditalUni { get; set; }
+        public string EditalProvao { get; set; }
 
         public int UniversidadeId { get; set; }
         public Universidade Universidade { get; set; }

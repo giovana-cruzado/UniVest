@@ -37,7 +37,7 @@
             </div>
 
             <div class="mt-4">
-                <h5>Documentos Importantes</h5>
+                <h5>Editais</h5>
                 @if (!string.IsNullOrEmpty(Model.EditalUni))
                 {
                     <a href="@Model.EditalUni" class="btn btn-primary" target="_blank">Ver Edital da Universidade</a>
@@ -50,7 +50,6 @@
         </div>
     </div>
 
-    <!-- Botão para voltar para a lista -->
     <div class="mt-5">
         <a asp-action="Cursos" asp-controller="Home" class="btn btn-outline-secondary">
             &larr; Voltar para a lista de cursos
