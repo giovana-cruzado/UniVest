@@ -30,8 +30,8 @@ public class AppDbSeed
                 DataPrevista2 = DateTime.Parse("14/12/2025"),
                 DataPrevista3 = DateTime.Parse("15/12/2025"),
                 DataPrevista4 = DateTime.Parse("09/12/2025"),
-                EditalUni = null,
-                EditalProvao = null,
+                EditalUni = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                EditalProvao = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
                 PrecoInscricao = 211.00m,
                 UniversidadeId = 1
             },
@@ -54,8 +54,8 @@ public class AppDbSeed
                 DataPrevista2 = DateTime.Parse("30/11/2025"),
                 DataPrevista3 = DateTime.Parse("01/12/2025"),
                 DataPrevista4 = DateTime.Parse("03/12/2025"),
-                EditalUni = null,
-                EditalProvao = null,
+                EditalUni = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                EditalProvao = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
                 PrecoInscricao = 210.00m,
                 UniversidadeId = 3
             }

@@ -47,7 +47,10 @@ public class HomeController : Controller
         var editalUni = _db.Vestibular
             .OrderByDescending(v => v.DataPrevista1)
             .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalUni;
-        var editalProvao = _db.Vestibular.LastOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalProvao;
+        var editalProvao = _db.Vestibular
+            .OrderByDescending(v => v.DataPrevista1)
+            .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalProvao;
+        
 
         var viewModel = new Detalhe
         {
@@ -60,7 +63,7 @@ public class HomeController : Controller
             DuracaoSemestre = campusCurso.Duracao,
             Img = "/images/placeholder-camera.png",
             EditalUni = editalUni,
-            EditalProvao = ""
+            EditalProvao = editalProvao
         };
 
         return View(viewModel);
