@@ -10,4 +10,5 @@ public class Usuario : IdentityUser
 
     [StringLength(200)]
     public string Foto { get; set; }
+    
 }

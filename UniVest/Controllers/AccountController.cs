@@ -15,7 +15,7 @@ public class AccountController : Controller
     private readonly SignInManager<Usuario> _signInManager;
     private readonly UserManager<Usuario> _userManager;
     private readonly IWebHostEnvironment _host;
-    private readonly AppDbContext  _db;
+    private readonly AppDbContext _db;
     public AccountController(
         ILogger<AccountController> logger,
         SignInManager<Usuario> signInManager,
@@ -84,6 +84,7 @@ public class AccountController : Controller
         return View(login);
     }
 
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Logout()
@@ -103,6 +104,19 @@ public class AccountController : Controller
     {
         return View();
     }
+
+    public IActionResult Perfil()
+    {
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+
+        if (usuario == null)
+            return NotFound();
+
+        return View(usuario);
+    }
+
 
     [HttpPost]
     [ValidateAntiForgeryToken]
