@@ -24,9 +24,17 @@
         <div class="content-wrapper">
             <aside class="sidebar">
                 <div class="profile-avatar">
-                    <div class="avatar-circle">
-                        <i class="bi bi-camera-fill"></i>
+                    <div class="avatar-circle" id="avatarPreview">
+                        @if (!string.IsNullOrEmpty(Model.Foto))
+                        {
+                            <img src="@Model.Foto" alt="Foto de perfil" class="avatar-image" />
+                        }
+                        else
+                        {
+                            <i class="bi bi-camera-fill"></i>
+                        }
                     </div>
+                    <input type="file" id="fotoInput" accept="image/*" style="display: none;" />
                 </div>
                 <nav class="sidebar-menu">
                     <ul>
@@ -40,7 +48,9 @@
             <main class="content">
                 <h2 class="content-title">Detalhes</h2>
 
-                <form method="post" class="form-container">
+                <form method="post" class="form-container" enctype="multipart/form-data" id="perfilForm">
+                    <input type="hidden" id="fotoBase64" name="FotoBase64" />
+
                     <div class="input-group">
                         <label for="email">Email</label>
                         <div class="input-wrapper">
@@ -56,10 +66,53 @@
                             <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
                         </div>
                     </div>
+
+                    <button type="submit" class="btn-submit" style="display: none;" id="submitBtn">Salvar
+                        Alterações</button>
                 </form>
             </main>
         </div>
     </div>
+
+    <script>
+        const avatarCircle = document.getElementById('avatarPreview');
+        const fotoInput = document.getElementById('fotoInput');
+        const submitBtn = document.getElementById('submitBtn');
+
+        avatarCircle.addEventListener('click', function () {
+            fotoInput.click();
+        });
+
+        fotoInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+
+            if (file) {
+                if (!file.type.startsWith('image/')) {
+                    alert('Por favor, selecione um arquivo de imagem válido.');
+                    return;
+                }
+
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('A imagem deve ter no máximo 5MB.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const base64String = event.target.result;
+
+                    document.getElementById('fotoBase64').value = base64String;
+
+                    avatarCircle.innerHTML = `<img src="${base64String}" alt="Foto de perfil" class="avatar-image" />`;
+
+                    submitBtn.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        avatarCircle.style.cursor = 'pointer';
+    </script>
 </body>
 
 </html>
