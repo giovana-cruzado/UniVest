@@ -41,6 +41,7 @@ public class AccountController : Controller
         };
         return View(login);
     }
+    
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -63,7 +64,6 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
-                //return LocalRedirect(login.UrlRetorno);
                 return RedirectToAction("Cursos", "Home");
             }
 
@@ -84,6 +84,46 @@ public class AccountController : Controller
         return View(login);
     }
 
+    [HttpGet]
+    public IActionResult MudarSenha()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> MudarSenha(ChangePasswordViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+
+            return RedirectToAction("Login");
+        }
+
+        var result = await _userManager.ChangePasswordAsync(user, model.SenhaAtual, model.NovaSenha);
+
+        if (result.Succeeded)
+        {
+            await _signInManager.RefreshSignInAsync(user);
+
+            TempData["SuccessMessage"] = "Sua senha foi alterada com sucesso!";
+            return RedirectToAction("Perfil");
+        }
+        else
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(model);
+        }
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
