@@ -1,0 +1,128 @@
+/* Estilos para a página Favoritos */
+
+/* Estrutura da página (assumindo que o fundo é um creme claro) */
+body {
+    background-color: #fcf8f0; /* Cor de fundo clara, ajuste conforme o seu tema */
+}
+
+/* Título principal */
+.content-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #4a148c; /* Cor roxa escura, ajuste conforme o seu tema */
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-left: 50px; /* Alinhamento do conteúdo, ajuste conforme o seu layout */
+}
+
+/* Grade de Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colunas em telas grandes */
+    gap: 30px;
+    padding: 0 50px;
+    max-width: 1200px; /* Largura máxima da grade */
+    margin: 0 auto;
+}
+
+/* Estilo do Card Individual */
+.card-favorito {
+    background-color: #f3e5f5; /* Fundo do card (roxo muito claro/lavanda) */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    height: 200px; /* Altura fixa para todos os cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header do Card (Tags e Coração) */
+.card-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Tags (SP, Licenciatura) */
+.card-tag {
+    background-color: #e1bee7; /* Cor de fundo das tags */
+    color: #4a148c; /* Cor do texto das tags */
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Ícone de Coração/Bookmark (para desfavoritar) */
+.card-heart-icon {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #4a148c; /* Cor roxa do coração */
+    font-size: 2.5rem;
+    line-height: 1; /* Alinha o ícone no topo */
+    transform: translateY(-5px); /* Ajusta a posição vertical para fora do card */
+}
+
+/* Corpo do Card */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4a148c;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #7b1fa2; /* Roxo um pouco mais claro */
+    margin-bottom: 10px;
+}
+
+/* Ícone de Detalhes (Seta) */
+.card-details-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #4a148c;
+    font-size: 1.5rem;
+    background-color: #e1bee7; /* Fundo da seta */
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.2s;
+}
+
+.card-details-icon:hover {
+    background-color: #ce93d8;
+}
+
+/* Estilos de responsividade */
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    .content-title {
+        padding-left: 20px;
+    }
+}

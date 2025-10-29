@@ -1,13 +1,11 @@
 .form-actions {
     display: flex;
-    justify-content: flex-end; /* Alinha o conteúdo (o botão) à direita */
-    margin-top: 20px; /* Espaço acima do botão */
+    justify-content: flex-end;
+    margin-top: 20px;
 }
 
-/* Estilo do botão Confirmar (assumindo que o perfil.css já tem um estilo base para .btn-submit) */
 .btn-submit {
-    /* Manter o estilo roxo/violeta do protótipo */
-    background-color: #8A2BE2; /* Violeta, ajuste conforme a cor exata do seu tema */
+    background-color: #8A2BE2; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -18,5 +16,5 @@
 }
 
 .btn-submit:hover {
-    background-color: #6A1B9A; /* Um tom mais escuro no hover */
+    background-color: #6A1B9A; 
 }

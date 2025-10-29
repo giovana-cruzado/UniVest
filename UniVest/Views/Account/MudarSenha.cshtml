@@ -1,6 +1,6 @@
 @{
-    ViewData["Title"] = "Mudar Senha";
-    Layout = null; // Mantendo a estrutura de layout do Perfil.cshtml
+    ViewData["Title"] = "Perfil";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/css/perfil.css"> @* Assumindo que o CSS é o mesmo para manter o estilo *@
-    <link rel="stylesheet" href="~/css/mudarsenha.css"> @* Estilos específicos para o botão de confirmar *@
+    <link rel="stylesheet" href="~/css/perfil.css">
+    <link rel="stylesheet" href="~/css/mudarsenha.css">
 </head>
 
 <body>
@@ -26,21 +26,21 @@
             <aside class="sidebar">
                 <div class="profile-avatar">
                     <div class="avatar-circle" id="avatarPreview">
-                        @* Mantendo a estrutura de avatar, mas removendo a lógica de upload/edição para simplificar esta view *@
                         @if (!string.IsNullOrEmpty(Model.Foto))
                         {
-                            <img src="@Model.Foto" alt="Foto de perfil" class="avatar-image" />
+                                <img src="@Model.Foto" alt="Foto de perfil" class="avatar-image" />
                         }
                         else
                         {
-                            <i class="bi bi-camera-fill"></i>
+                                <i class="bi bi-camera-fill"></i>
                         }
                     </div>
+                    <input type="file" id="fotoInput" accept="image/*" style="display: none;" />
                 </div>
                 <nav class="sidebar-menu">
                     <ul>
                         <li><a href="@Url.Action("Perfil", "Account")" class="menu-item">Detalhes</a></li>
-                        <li><a href="@Url.Action("MudarSenha", "Account")" class="menu-item active">Mudar Senha</a></li>
+                        <li><a href="~/Account/MudarSenha" class="menu-item active">Mudar Senha</a></li>
                         <li><a href="@Url.Action("DeletarConta", "Account")" class="menu-item">Deletar Conta</a></li>
                     </ul>
                 </nav>
@@ -59,7 +59,6 @@
                         </div>
                     </div>
 
-                    @* Campo Nova Senha *@
                     <div class="input-group">
                         <label for="novaSenha">Nova Senha</label>
                         <div class="input-wrapper">
@@ -69,7 +68,6 @@
                         </div>
                     </div>
 
-                    @* Campo Confirmar Senha *@
                     <div class="input-group">
                         <label for="confirmarSenha">Confirmar Senha</label>
                         <div class="input-wrapper">
@@ -79,7 +77,6 @@
                         </div>
                     </div>
 
-                    @* Botão Confirmar, alinhado à direita conforme o protótipo *@
                     <div class="form-actions">
                         <button type="submit" class="btn-submit">Confirmar</button>
                     </div>
@@ -87,11 +84,9 @@
             </main>
         </div>
     </div>
-
-    @* Script para manter o cursor pointer no avatar, se necessário, ou adicionar validação de formulário *@
+    
     <script>
-        // Exemplo de script para validação simples (opcional)
-        const form = document.getElementById('mudarSenhaForm');
+                const form = document.getElementById('mudarSenhaForm');
         const novaSenha = document.getElementById('novaSenha');
         const confirmarSenha = document.getElementById('confirmarSenha');
 
@@ -99,9 +94,7 @@
             if (novaSenha.value !== confirmarSenha.value) {
                 e.preventDefault();
                 alert('A Nova Senha e a Confirmação de Senha não coincidem.');
-                // Adicionar lógica de feedback visual melhor aqui
             }
-            // Adicionar validação de complexidade de senha, se necessário
         });
     </script>
 </body>
