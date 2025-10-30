@@ -30,8 +30,8 @@ public class AppDbSeed
                 DataPrevista2 = DateTime.Parse("14/12/2025"),
                 DataPrevista3 = DateTime.Parse("15/12/2025"),
                 DataPrevista4 = DateTime.Parse("09/12/2025"),
-                EditalUni = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
-                EditalProvao = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+                EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
                 PrecoInscricao = 211.00m,
                 UniversidadeId = 1
             },
@@ -43,7 +43,7 @@ public class AppDbSeed
                 DataPrevista3 = DateTime.Parse("08/12/2025"),
                 DataPrevista4 = null,
                 EditalUni = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
-                EditalProvao = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
                 PrecoInscricao = 210.00m,
                 UniversidadeId = 2
             },
@@ -54,8 +54,8 @@ public class AppDbSeed
                 DataPrevista2 = DateTime.Parse("30/11/2025"),
                 DataPrevista3 = DateTime.Parse("01/12/2025"),
                 DataPrevista4 = DateTime.Parse("03/12/2025"),
-                EditalUni = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
-                EditalProvao = "https://vestibular.unesp.br/Home/guiadeprofissoes51/guia-unesp-de-profissoes-2025-1.pdf",
+                EditalUni = "https://www.comvest.unicamp.br/wp-content/uploads/2025/07/Edital-Vestibular-Unicamp-2026.pdf",
+                EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
                 PrecoInscricao = 210.00m,
                 UniversidadeId = 3
             }

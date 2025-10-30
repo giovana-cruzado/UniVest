@@ -87,7 +87,14 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult MudarSenha()
     {
-        return View();
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+
+        if (usuario == null)
+            return NotFound();
+
+        return View(usuario);
     }
 
     [HttpPost]
@@ -201,6 +208,20 @@ public class AccountController : Controller
         }
         return View(cadastro);
     }
+
+    public IActionResult DeletarConta()
+    {
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+
+        if (usuario == null)
+            return NotFound();
+
+        return View(usuario);
+    }
+
+   
 
     public bool IsValidEmail(string email)
     {
