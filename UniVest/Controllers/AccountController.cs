@@ -221,7 +221,16 @@ public class AccountController : Controller
         return View(usuario);
     }
 
-   
+    [HttpPost, ActionName("DeletarConta")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeletarContaConfirmado()
+    {
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+        await _signInManager.SignOutAsync();
+        await _userManager.DeleteAsync(usuario);
+        return RedirectToAction("Index", "Home");
+    }
 
     public bool IsValidEmail(string email)
     {
