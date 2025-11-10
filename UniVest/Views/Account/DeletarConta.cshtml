@@ -17,11 +17,20 @@
 </head>
 
 <body>
-    <div class="main-container">
-        <header class="header">
-            <h1><a asp-action="Index" asp-controller="Home"><img src="~/img/uv.png" alt="Logo" style="width: 25%;"></a></h1>
-            <a href="#" class="heart-icon"><i class="bi bi-heart-fill"></i></a>
-        </header>
+    <div class="navbar" style="padding-left: 210px; padding-right: 160px;">
+        <div>
+            <a asp-action="Index" asp-controller="Home" style="padding-right: 0; justify-content: flex-start;">
+                <img src="~/img/uv.png" alt="Logo" style="height: 40px; width: auto;" />
+            </a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <a href="~/Home/Favorito" title="Meus Favoritos" style="padding-right: 0; justify-content: center;">
+                <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+            </a>
+            <partial name="_LoginPartial" />
+        </div>
+    </div>
 
         <div class="content-wrapper">
             <aside class="sidebar">
@@ -51,11 +60,10 @@
                 <h2 class="content-title">Deletar Conta</h2>
 
                 <div class="delete-info-container">
-                    <h3 class="delete-info-title">Deletar conta</h3>
                     <p class="delete-info-text">Deletar sua conta irá apagar todos seus dados.</p>
                     
                     <form method="post" class="form-container form-delete-initial">
-                        <button type="submit" class="btn-submit btn-delete-confirm">Deletar Conta</button>
+                        <button type="submit" class="btn-submit btn-delete-confirm">Confirmar</button>
                     </form>
                 </div>
             </main>

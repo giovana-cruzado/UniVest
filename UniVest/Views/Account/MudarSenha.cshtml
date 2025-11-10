@@ -16,11 +16,20 @@
 </head>
 
 <body>
-    <div class="main-container">
-        <header class="header">
-            <h1><a asp-action="Index" asp-controller="Home"><img src="~/img/uv.png" alt="Logo" style="width: 25%;"></a></h1>
-            <a href="#" class="heart-icon"><i class="bi bi-heart-fill"></i></a>
-        </header>
+    <div class="navbar" style="padding-left: 210px; padding-right: 160px;">
+        <div>
+            <a asp-action="Index" asp-controller="Home" style="padding-right: 0; justify-content: flex-start;">
+                <img src="~/img/uv.png" alt="Logo" style="height: 40px; width: auto;" />
+            </a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <a href="~/Home/Favorito" title="Meus Favoritos" style="padding-right: 0; justify-content: center;">
+                <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+            </a>
+            <partial name="_LoginPartial" />
+        </div>
+    </div>
 
         <div class="content-wrapper">
             <aside class="sidebar">
@@ -53,18 +62,16 @@
                     <div class="input-group">
                         <label for="senhaAtual">Senha Atual</label>
                         <div class="input-wrapper">
-                            <input type="password" id="senhaAtual" name="SenhaAtual" placeholder="Digite aqui..."
+                            <input type="password" id="senhaAtual" name="SenhaAtual" placeholder="Digite aqui"
                                 required />
-                            <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
                         </div>
                     </div>
 
                     <div class="input-group">
                         <label for="novaSenha">Nova Senha</label>
                         <div class="input-wrapper">
-                            <input type="password" id="novaSenha" name="NovaSenha" placeholder="Digite aqui..."
+                            <input type="password" id="novaSenha" name="NovaSenha" placeholder="Digite aqui"
                                 required />
-                            <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
                         </div>
                     </div>
 
@@ -72,8 +79,7 @@
                         <label for="confirmarSenha">Confirmar Senha</label>
                         <div class="input-wrapper">
                             <input type="password" id="confirmarSenha" name="ConfirmarSenha"
-                                placeholder="Digite aqui..." required />
-                            <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
+                                placeholder="Digite aqui" required />
                         </div>
                     </div>
 
@@ -93,7 +99,7 @@
         form.addEventListener('submit', function (e) {
             if (novaSenha.value !== confirmarSenha.value) {
                 e.preventDefault();
-                alert('A Nova Senha e a Confirmação de Senha não coincidem.');
+                alert('A nova senha e a confirmação de senha não coincidem.');
             }
         });
     </script>

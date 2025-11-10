@@ -13,13 +13,26 @@
         <img src="~/img/usuarios/no-photo.png" width="40" height="40" class="object-fit-cover rounded-5">
     </a>
 }
+@* Bloco ELSE corrigido *@
 else
 {
-    <div class="nav-item dropdown me-2">
-        <button class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src='@(usuario.Foto ?? Url.Content("~/img/usuarios/no-photo.png"))' width="40" height="40" class="object-fit-cover rounded-5">
-        </button>
-        <ul class="dropdown-menu text-dark" style="position:absolute!important; margin-left: -200px!important; width:250px">
+    <div class="nav-item dropdown">
+        
+        @* Botão que ativa o Dropdown: Usamos um link para a imagem de perfil *@
+        <a class="nav-link p-0" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            @* Imagem de Perfil *@
+            <img src='@(usuario.Foto ?? Url.Content("~/img/usuarios/no-photo.png"))' 
+                 width="40" height="40" 
+                 class="object-fit-cover rounded-5">
+            
+            @* Ícone de Seta (Dropdown) *@
+            <i class="bi bi-chevron-down ms-1" style="font-size: 12px; color: white;"></i>
+        </a>
+        
+        @* Menu Dropdown: Usamos a classe dropdown-menu-end para alinhar à direita *@
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            
             @if (User.IsInRole("Administrador") || User.IsInRole("Funcionário"))
             {
                 <li>
@@ -32,15 +45,20 @@ else
                         <i class="bi bi-receipt"></i> Acessar Área Administrativa
                     </a>
                 </li>
+                <li><hr class="dropdown-divider"></li>
             }
+            
+            @* Opção Gerenciar Conta *@
             <li>
                 <a class="dropdown-item" href="@Url.Action("Perfil", "Account")">
                     <i class="bi bi-person-bounding-box"></i> Gerenciar Conta
                 </a>
             </li>
+            
+            @* Opção Sair *@
             <li>
                 <form method="POST" asp-action="Logout" asp-controller="Account">
-                    <button type="submit" class="dropdown-item aling-middle">
+                    <button type="submit" class="dropdown-item">
                         <i class="bi bi-door-closed"></i> Sair
                     </button>
                 </form>

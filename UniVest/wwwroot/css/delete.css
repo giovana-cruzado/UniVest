@@ -1,6 +1,3 @@
-/* Estilos para a página Deletar Conta (Nova Versão) */
-
-/* Container de Informação para alinhar o botão */
 .delete-info-container {
     margin-top: 20px;
     /* Adicione um max-width se o conteúdo precisar ser centralizado */
@@ -15,7 +12,7 @@
 
 .delete-info-text {
     font-size: 1rem;
-    color: #666; /* Cor cinza para o texto de aviso */
+    color: #3d2d6b; /* Cor cinza para o texto de aviso */
     margin-bottom: 40px; /* Espaço entre o texto e o botão */
 }
 
@@ -28,17 +25,15 @@
 
 /* Botão de Deletar (Roxo, como no protótipo) */
 .btn-delete-confirm {
-    /* Cor roxa do protótipo, que parece ser um pouco mais clara que o padrão */
-    background-color: #9370DB; /* MediumPurple ou algo similar */
+    background-color: #8A2BE2; 
     color: white;
     border: none;
-    padding: 15px 40px; /* Botão maior */
-    border-radius: 25px; /* Borda mais arredondada */
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    
     /* Alinhamento no centro da área de conteúdo (se o container for largo) */
     /* Se o formulário estiver esticado, o botão estará à esquerda. */
     /* Se precisar centralizar, você precisará envolver o botão em uma div com text-align: center; */
