@@ -1,0 +1,48 @@
+@model UniVest.ViewModels.FavoritoVM
+
+@{
+    ViewData["Title"] = "Meus Favoritos";
+}
+
+<link rel="stylesheet" href="~/css/favoritos.css" asp-append-version="true" />
+
+<div class="favoritos-container">
+    <h1 class="titulo-pagina">Favoritos</h1>
+
+    @if (Model.CursosFavoritados != null && Model.CursosFavoritados.Any())
+    {
+        <div class="grid-favoritos">
+            @foreach (var curso in Model.CursosFavoritados)
+            {
+                <div class="card-curso">
+                    <div class="card-header">
+                        <div class="tags">
+                            <span class="tag">@curso.Estado</span>
+                            <span class="tag">@curso.Modalidade</span>
+                        </div>
+                        <div class="icone-favorito">
+                            <i class="fas fa-bookmark"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="nome-curso">@curso.NomeUniversidade - @curso.NomeCurso</h3>
+                        <p class="cidade-curso">@curso.Cidade</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="@Url.Action("Detalhes", "Curso", new { id = curso.CursoId })" class="btn-detalhes">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="sem-favoritos">
+            <h2>Nenhum curso favoritado ainda.</h2>
+            <p>Explore os cursos e adicione os que mais gostar aos seus favoritos!</p>
+            <a href="@Url.Action("Index", "Curso")" class="btn-explorar">Explorar Cursos</a>
+        </div>
+    }
+</div>

@@ -5,7 +5,7 @@ namespace UniVest.Models
         public int Id { get; set; } 
         public string UsuarioId { get; set; } 
         public Usuario Usuario { get; set; } 
-        public int VestibularId { get; set; }
-        public Vestibular Vestibular { get; set; }
+        public int CampusCursoId { get; set; }
+        public CampusCurso CampusCurso { get; set; }
     }
 }

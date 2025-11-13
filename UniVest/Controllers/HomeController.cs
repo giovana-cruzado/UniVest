@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using UniVest.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using UniVest.Helpers;
+using System.Security.Claims;
 
 namespace UniVest.Controllers;
 
@@ -132,6 +133,20 @@ public class HomeController : Controller
         viewModel.Resultados = query.ToList();
 
         return View(viewModel);
+    }
+
+    [Authorize]
+    public IActionResult Favorito()
+    {
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+        if (usuario == null)
+            return RedirectToAction("Login", "Account");
+
+        // var favoritos = _db.Favorito
+        //     .Where(f => f.UsuarioId == usuarioId)
+        //     .Include()
+        return View();
     }
 
     public IActionResult Error()

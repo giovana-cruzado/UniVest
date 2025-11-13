@@ -1,128 +1,162 @@
-/* Estilos para a página Favoritos */
+/* Estilos para a página de Favoritos (favoritos.css ) */
 
-/* Estrutura da página (assumindo que o fundo é um creme claro) */
-body {
-    background-color: #fcf8f0; /* Cor de fundo clara, ajuste conforme o seu tema */
+/* Importação de fonte (opcional, mas recomendado para o estilo) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap' );
+
+/* Variáveis de cor para fácil manutenção, baseadas na imagem */
+:root {
+    --cor-fundo: #FFFBF2; /* Um bege bem claro */
+    --cor-card: #F6F1FF; /* Lilás muito claro */
+    --cor-principal: #3A136F; /* Roxo escuro do header */
+    --cor-texto: #333;
+    --cor-borda-card: #EAE0FF;
+    --cor-sombra: rgba(0, 0, 0, 0.05);
 }
 
-/* Título principal */
-.content-title {
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+}
+
+.favoritos-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.titulo-pagina {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #4a148c; /* Cor roxa escura, ajuste conforme o seu tema */
-    margin-bottom: 30px;
-    margin-top: 20px;
-    padding-left: 50px; /* Alinhamento do conteúdo, ajuste conforme o seu layout */
+    color: var(--cor-principal);
+    margin-bottom: 2rem;
 }
 
-/* Grade de Cards */
-.cards-grid {
+.grid-favoritos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colunas em telas grandes */
-    gap: 30px;
-    padding: 0 50px;
-    max-width: 1200px; /* Largura máxima da grade */
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-/* Estilo do Card Individual */
-.card-favorito {
-    background-color: #f3e5f5; /* Fundo do card (roxo muito claro/lavanda) */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    position: relative;
-    height: 200px; /* Altura fixa para todos os cards */
+.card-curso {
+    background-color: var(--cor-card);
+    border-radius: 16px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid var(--cor-borda-card);
+    box-shadow: 0 4px 15px var(--cor-sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Header do Card (Tags e Coração) */
+.card-curso:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
 .card-header {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
 }
 
-/* Tags (SP, Licenciatura) */
-.card-tag {
-    background-color: #e1bee7; /* Cor de fundo das tags */
-    color: #4a148c; /* Cor do texto das tags */
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-size: 0.8rem;
+.tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: #EAE0FF;
+    color: var(--cor-principal);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
-/* Ícone de Coração/Bookmark (para desfavoritar) */
-.card-heart-icon {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    color: #4a148c; /* Cor roxa do coração */
-    font-size: 2.5rem;
-    line-height: 1; /* Alinha o ícone no topo */
-    transform: translateY(-5px); /* Ajusta a posição vertical para fora do card */
-}
-
-/* Corpo do Card */
-.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #4a148c;
-    margin-bottom: 5px;
-}
-
-.card-subtitle {
+.icone-favorito {
+    background-color: var(--cor-principal);
+    color: white;
     font-size: 1rem;
-    color: #7b1fa2; /* Roxo um pouco mais claro */
-    margin-bottom: 10px;
-}
-
-/* Ícone de Detalhes (Seta) */
-.card-details-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color: #4a148c;
-    font-size: 1.5rem;
-    background-color: #e1bee7; /* Fundo da seta */
-    border-radius: 50%;
-    padding: 5px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    transition: background-color 0.2s;
+    border-radius: 0 15px 0 8px; /* Cantos arredondados para formar a "bandeira" */
+    margin: -1rem -1rem 0 0; /* Puxa o ícone para o canto superior direito */
 }
 
-.card-details-icon:hover {
-    background-color: #ce93d8;
+.card-body {
+    flex-grow: 1;
 }
 
-/* Estilos de responsividade */
-@media (max-width: 900px) {
-    .cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+.nome-curso {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    margin: 0;
 }
 
-@media (max-width: 600px) {
-    .cards-grid {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-    }
-    .content-title {
-        padding-left: 20px;
-    }
+.cidade-curso {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.25rem 0 0 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.btn-detalhes {
+    background-color: white;
+    color: var(--cor-principal);
+    border: 1px solid #EAE0FF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-detalhes:hover {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+/* Estilos para quando não há favoritos */
+.sem-favoritos {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px dashed var(--cor-borda-card);
+}
+
+.sem-favoritos h2 {
+    color: var(--cor-principal);
+}
+
+.btn-explorar {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explorar:hover {
+    background-color: #522399; /* Um tom mais claro do roxo */
 }
