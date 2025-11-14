@@ -14,6 +14,7 @@ namespace UniVest.ViewModels
     }
     public class CursoFavoritadoViewModel
     {
+        public int CampusCursoId { get; set; }
         public int CursoId { get; set; }
         public string NomeCurso { get; set; }
         public string NomeUniversidade { get; set; }

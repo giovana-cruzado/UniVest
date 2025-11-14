@@ -33,41 +33,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Detalhes(int id)
     {
-         var campusCurso = await _db.CampusCurso
-        .Include(cc => cc.Curso)
-        .Include(cc => cc.Modalidade)
-        .Include(cc => cc.Campus)
-            .ThenInclude(c => c.Universidade)
-        .FirstOrDefaultAsync(cc => cc.Id == id);
-
-        if (campusCurso == null)
-        {
-            return NotFound();
-        }
-
-        var editalUni = _db.Vestibular
-            .OrderByDescending(v => v.DataPrevista1)
-            .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalUni;
-        var editalProvao = _db.Vestibular
-            .OrderByDescending(v => v.DataPrevista1)
-            .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalProvao;
-        
-
-        var viewModel = new Detalhe
-        {
-            UniversidadeNome = campusCurso.Campus.Universidade.Nome,
-            CursoNome = campusCurso.Curso.Nome,
-            Estado = campusCurso.Campus.Estado,
-            Periodo = campusCurso.Periodo.GetDisplayName(),
-            CampusNome = campusCurso.Campus.Nome,
-            Modalidade = campusCurso.Modalidade.Nome,
-            DuracaoSemestre = campusCurso.Duracao,
-            Img = "/images/placeholder-camera.png",
-            EditalUni = editalUni,
-            EditalProvao = editalProvao
-        };
-
-        return View(viewModel);
+        return View(await GetCampusCurso(id));
     }
 
     [HttpGet]
@@ -136,21 +102,92 @@ public class HomeController : Controller
     }
 
     [Authorize]
-    public IActionResult Favorito()
+    public async Task<IActionResult> Favorito()
     {
         var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
         if (usuario == null)
             return RedirectToAction("Login", "Account");
 
-        // var favoritos = _db.Favorito
-        //     .Where(f => f.UsuarioId == usuarioId)
-        //     .Include()
-        return View();
+        var favoritos = _db.Favorito
+            .Where(f => f.UsuarioId == usuarioId)
+            .ToList();
+       
+        var cursosFavoritados = new List<CursoFavoritadoViewModel>();
+        foreach (var favorito in favoritos) 
+        {
+            var campusCurso = await _db.CampusCurso
+                .Include(cc => cc.Curso)
+                .Include(cc => cc.Modalidade)
+                .Include(cc => cc.Campus)
+                    .ThenInclude(c => c.Universidade)
+                .Include(cc => cc.Campus)
+                    .ThenInclude(u => u.Cidade)
+                .FirstOrDefaultAsync(cc => cc.Id == favorito.CampusCursoId);
+            
+            cursosFavoritados.Add(
+                new() {
+                    CampusCursoId = campusCurso.Id,
+                    NomeCurso = campusCurso.Curso.Nome,
+                    NomeUniversidade = campusCurso.Campus.Universidade.Nome,
+                    Cidade = campusCurso.Campus.Cidade,
+                    CursoId = campusCurso.CursoId,
+                    Estado = campusCurso.Campus.Estado,
+                    Modalidade = campusCurso.Modalidade.Nome
+                }       
+            );
+        }
+        FavoritoVM favoritosVM = new() {
+            CursosFavoritados = cursosFavoritados
+        };
+        return View(favoritosVM);
     }
 
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+
+
+    private async Task<Detalhe> GetCampusCurso(int id) {
+        
+        var campusCurso = await _db.CampusCurso
+            .Include(cc => cc.Curso)
+            .Include(cc => cc.Modalidade)
+            .Include(cc => cc.Campus)
+                .ThenInclude(c => c.Universidade)
+            .FirstOrDefaultAsync(cc => cc.Id == id);
+
+        if (campusCurso == null)
+        {
+            return null;
+        }
+
+        var editalUni = _db.Vestibular
+            .OrderByDescending(v => v.DataPrevista1)
+            .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalUni;
+        var editalProvao = _db.Vestibular
+            .OrderByDescending(v => v.DataPrevista1)
+            .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalProvao;
+        
+
+        var viewModel = new Detalhe
+        {
+            CampusCursoId = campusCurso.Id,
+            UniversidadeNome = campusCurso.Campus.Universidade.Nome,
+            CursoNome = campusCurso.Curso.Nome,
+            Estado = campusCurso.Campus.Estado,
+            Periodo = campusCurso.Periodo.GetDisplayName(),
+            CampusNome = campusCurso.Campus.Nome,
+            Modalidade = campusCurso.Modalidade.Nome,
+            DuracaoSemestre = campusCurso.Duracao,
+            Img = "/images/placeholder-camera.png",
+            EditalUni = editalUni,
+            EditalProvao = editalProvao
+        };
+
+        return viewModel;
+
     }
 }
