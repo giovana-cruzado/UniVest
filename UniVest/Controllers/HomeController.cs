@@ -148,8 +148,6 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-
-
     private async Task<Detalhe> GetCampusCurso(int id) {
         
         var campusCurso = await _db.CampusCurso
