@@ -112,21 +112,22 @@ public class HomeController : Controller
         var favoritos = _db.Favorito
             .Where(f => f.UsuarioId == usuarioId)
             .ToList();
-       
+
         var cursosFavoritados = new List<CursoFavoritadoViewModel>();
-        foreach (var favorito in favoritos) 
+        foreach (var favorito in favoritos)
         {
             var campusCurso = await _db.CampusCurso
                 .Include(cc => cc.Curso)
                 .Include(cc => cc.Modalidade)
                 .Include(cc => cc.Campus)
                     .ThenInclude(c => c.Universidade)
-                .Include(cc => cc.Campus)
-                    .ThenInclude(u => u.Cidade)
+                //.Include(cc => cc.Campus)
+                    //.ThenInclude(u => u.Cidade)
                 .FirstOrDefaultAsync(cc => cc.Id == favorito.CampusCursoId);
-            
+
             cursosFavoritados.Add(
-                new() {
+                new()
+                {
                     CampusCursoId = campusCurso.Id,
                     NomeCurso = campusCurso.Curso.Nome,
                     NomeUniversidade = campusCurso.Campus.Universidade.Nome,
@@ -134,13 +135,48 @@ public class HomeController : Controller
                     CursoId = campusCurso.CursoId,
                     Estado = campusCurso.Campus.Estado,
                     Modalidade = campusCurso.Modalidade.Nome
-                }       
+                }
             );
         }
-        FavoritoVM favoritosVM = new() {
+        FavoritoVM favoritosVM = new()
+        {
             CursosFavoritados = cursosFavoritados
         };
         return View(favoritosVM);
+    }
+
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Favorito(int id)
+    {
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+        if (usuario == null)
+            return RedirectToAction("Login", "Account");
+
+        if (id != 0)
+        {
+            Favorito favorito = _db.Favorito.Where(
+                f => f.UsuarioId == usuarioId && f.CampusCursoId == id
+            ).SingleOrDefault();
+
+            if (favorito == null)
+            {
+                favorito = new()
+                {
+                    UsuarioId = usuarioId,
+                    CampusCursoId = id
+                };
+                _db.Favorito.Add(favorito);
+            }
+            else
+            {
+                _db.Favorito.Remove(favorito);
+            }
+            await _db.SaveChangesAsync();
+        }
+        return RedirectToAction("Detalhes", new { id = id });
     }
 
     public IActionResult Error()
@@ -148,8 +184,9 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    private async Task<Detalhe> GetCampusCurso(int id) {
-        
+    private async Task<Detalhe> GetCampusCurso(int id)
+    {
+
         var campusCurso = await _db.CampusCurso
             .Include(cc => cc.Curso)
             .Include(cc => cc.Modalidade)
@@ -168,7 +205,16 @@ public class HomeController : Controller
         var editalProvao = _db.Vestibular
             .OrderByDescending(v => v.DataPrevista1)
             .FirstOrDefault(v => v.UniversidadeId == campusCurso.Campus.UniversidadeId).EditalProvao;
-        
+
+
+        var usuarioId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var usuario = _db.Usuario.FirstOrDefault(u => u.Id == usuarioId);
+        bool favorito = false;
+        if (usuario != null)
+        {
+            if (_db.Favorito.Any(f => f.UsuarioId == usuarioId && f.CampusCursoId ==  campusCurso.Id))
+                favorito = true;
+        }
 
         var viewModel = new Detalhe
         {
@@ -182,7 +228,8 @@ public class HomeController : Controller
             DuracaoSemestre = campusCurso.Duracao,
             Img = "/images/placeholder-camera.png",
             EditalUni = editalUni,
-            EditalProvao = editalProvao
+            EditalProvao = editalProvao,
+            Favoritado = favorito
         };
 
         return viewModel;

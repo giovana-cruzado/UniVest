@@ -60,7 +60,8 @@ body {
 }
 
 .login-box input[type="text"],
-.login-box input[type="password"] {
+.login-box input[type="password"],
+.login-box input[type="email"] {
   width: 100%;
   padding: 0.6rem;
   margin: 0.5rem 0;

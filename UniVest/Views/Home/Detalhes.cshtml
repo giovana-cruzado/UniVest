@@ -4,62 +4,68 @@
     ViewData["Title"] = "Detalhes";
 }
 
-<div class="curso-header">
-    <div>
-        <h1>@Model.CursoNome</h1>
-        <h4><i class="fas fa-university mr-2"></i>@Model.UniversidadeNome</h4>
+<div class="container mt-5">
+
+    <div class="curso-header">
+        <div>
+            <h1>@Model.CursoNome</h1>
+            <h4><i class="fas fa-university mr-2"></i>@Model.UniversidadeNome</h4>
+        </div>
+
+        <form asp-action="Favorito" method="post">
+            <input type="hidden" name="id" value="@Model.CampusCursoId">
+            <button type="submit" class="btn-favorito" title="Favoritar" style="border:none;background-color:transparent">
+                <i class="@(Model.Favoritado ? "bi bi-heart-fill" : "bi bi-heart")"></i>
+
+            </button>
+        </form>
     </div>
 
-    <a href="~/Home/Favorito" class="btn-favorito" title="Favoritar">
-        <i class="bi bi-heart"></i>
-    </a>
-</div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Model.Img" alt="Imagem do curso" class="img-fluid rounded shadow-sm" />
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Campus:</strong> @Model.CampusNome
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Localização:</strong> @Model.Estado
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Modalidade:</strong> @Model.Modalidade
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Período:</strong> @Model.Periodo
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Duração:</strong> @Model.DuracaoSemestre semestres
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <img src="@Model.Img" alt="Imagem do curso" class="img-fluid rounded shadow-sm" />
-    </div>
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <strong>Campus:</strong> @Model.CampusNome
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Localização:</strong> @Model.Estado
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Modalidade:</strong> @Model.Modalidade
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Período:</strong> @Model.Periodo
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Duração:</strong> @Model.DuracaoSemestre semestres
-                    </li>
-                </ul>
+            <div class="mt-4">
+                <h5>Editais</h5>
+                @if (!string.IsNullOrEmpty(Model.EditalUni))
+                {
+                    <a href="@Model.EditalUni" class="btn btn-primary" target="_blank">Ver Edital da Universidade</a>
+                }
+                @if (!string.IsNullOrEmpty(Model.EditalProvao))
+                {
+                    <a href="@Model.EditalProvao" class="btn btn-secondary" target="_blank">Ver Edital do Provão</a>
+                }
             </div>
         </div>
-
-        <div class="mt-4">
-            <h5>Editais</h5>
-            @if (!string.IsNullOrEmpty(Model.EditalUni))
-            {
-                <a href="@Model.EditalUni" class="btn btn-primary" target="_blank">Ver Edital da Universidade</a>
-            }
-            @if (!string.IsNullOrEmpty(Model.EditalProvao))
-            {
-                <a href="@Model.EditalProvao" class="btn btn-secondary" target="_blank">Ver Edital do Provão</a>
-            }
-        </div>
     </div>
-</div>
 
-<div class="mt-5">
-    <a asp-action="Cursos" asp-controller="Home" class="btn btn-outline-secondary">
-        &larr; Voltar para a lista de cursos
-    </a>
-</div>
+    <div class="mt-5">
+        <a asp-action="Cursos" asp-controller="Home" class="btn btn-outline-secondary">
+            &larr; Voltar para a lista de cursos
+        </a>
+    </div>
 </div>

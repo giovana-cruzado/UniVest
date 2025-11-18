@@ -95,7 +95,7 @@ body {
 
 .nome-curso {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--cor-texto);
     margin: 0;
 }

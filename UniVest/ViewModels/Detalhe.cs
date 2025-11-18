@@ -12,6 +12,8 @@ public class Detalhe
     public int DuracaoSemestre { get; set; }
     public string Img { get; set; }
 
+    public bool Favoritado { get; set; } = false;
+
     public string EditalUni { get; set; }
     public string EditalProvao { get; set; }
 }
