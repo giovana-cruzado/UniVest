@@ -5,17 +5,56 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/login.css">
+    <style>
+        .password-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .password-container input {
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+            font-size: 1.2em;
+            color: #888;
+        }
+    </style>
 }
 
 <div class="container">
     <div class="login-box">
         <h2>CADASTRO</h2>
-        <form asp-action="Cadastro" method="post">
+        <form asp-action="Cadastro" method="post" onsubmit="return validarSenhas()">
             <div asp-validation-summary="ModelOnly" hidden></div>
             <input asp-for="Email" placeholder="Email" required />
             <input asp-for="Nome" placeholder="Nome" required />
-            <input asp-for="Senha" placeholder="Senha" required />
-            <input asp-for="ConfirmacaoSenha" placeholder="Confirme a senha" required />
+            <label asp-for="Senha" class="form-label visually-hidden">Senha</label>
+            <div class="password-container">
+                <input asp-for="Senha" type="password" placeholder="Senha" required class="form-control" id="senha" />
+                <span class="toggle-password" data-target="senha"><i class="bi bi-eye"></i></span>
+            </div>
+            <div id="senhaRegras" class="form-text" style="margin-top:6px; font-size:0.9rem; display:none;">
+                <div class="senha-regra" data-regra="naoAlfanumerico">• Deve conter ao menos 1 caractere não
+                    alfanumérico.</div>
+                <div class="senha-regra" data-regra="minuscula">• Deve conter ao menos 1 letra minúscula (a–z).</div>
+                <div class="senha-regra" data-regra="maiuscula">• Deve conter ao menos 1 letra maiúscula (A–Z).</div>
+                <div class="senha-regra" data-regra="minimo6digitos">• Deve conter no mínimo 6 dígitos.</div>
+            </div>
+            <div class="password-container">
+                <input asp-for="ConfirmacaoSenha" type="password" placeholder="Confirme a senha" required
+                    id="confirmacaoSenha" />
+                <span class="toggle-password" data-target="confirmacaoSenha"><i class="bi bi-eye"></i></span>
+            </div>
+            <div id="avisoNaoConferem" style="color:#b02a37; display:none;">
+                • As senhas não conferem.
+            </div>
             <div class="checkbox">
                 <input type="checkbox" id="manter" />
                 <label for="manter">Manter Conectado</label>
@@ -29,16 +68,95 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script type="text/javascript">
-        let mensagemErro = '';
-        $(".validation-summary-errors ul li").each(function () {
-            mensagemErro += $(this).text() + '<br />';
-        });
-        if (mensagemErro != '')
-            swal.fire(
-                'Acesso Negado',
-                mensagemErro,
-                'error'
-            );
+
+    <script>
+        (function () {
+            const inputSenha = document.getElementById("senha");
+            const inputConf = document.getElementById("confirmacaoSenha");
+            const blocoRegras = document.getElementById("senhaRegras");
+            const avisoNaoConferem = document.getElementById("avisoNaoConferem");
+            const regras = {
+                minuscula: /[a-z]/,
+                maiuscula: /[A-Z]/,
+                naoAlfanumerico: /[^A-Za-z0-9]/,
+                minimo6digitos: /.{6,}/
+            };
+
+            function atualizarRegras() {
+                const val = inputSenha.value;
+                let regrasQueFaltam = 0;
+
+                document.querySelectorAll("#senhaRegras .senha-regra").forEach(el => {
+                    const regra = el.getAttribute("data-regra");
+                    let ok = false;
+
+                    if (regra === "minimo6digitos") {
+                        ok = val.length >= 6;
+                    } else {
+                        ok = regras[regra].test(val);
+                    }
+
+                    el.style.display = ok ? "none" : "block";
+                    if (!ok) regrasQueFaltam++;
+                });
+
+                if (val.length > 0 && regrasQueFaltam > 0) {
+                    blocoRegras.style.display = "block";
+                } else {
+                    blocoRegras.style.display = "none";
+                }
+            }
+
+            function atualizarConferencia() {
+                const s = inputSenha.value;
+                const c = inputConf.value;
+
+                if (c.length > 0 && s !== c) {
+                    avisoNaoConferem.style.display = "block";
+                } else {
+                    avisoNaoConferem.style.display = "none";
+                }
+            }
+
+            inputSenha.addEventListener("input", function () {
+                atualizarRegras();
+                atualizarConferencia();
+            });
+
+            window.validarSenhas = function () {
+                const s = inputSenha.value;
+                const c = inputConf.value;
+
+                if (s !== c) {
+                    avisoNaoConferem.style.display = "block";
+                    return false; 
+                }
+                return true; 
+            }
+
+            inputConf.addEventListener("input", atualizarConferencia);
+
+            document.querySelectorAll(".toggle-password").forEach(toggle => {
+                toggle.addEventListener("click", function () {
+                    const targetId = this.getAttribute("data-target");
+                    const targetInput = document.getElementById(targetId);
+
+                    const icon = this.querySelector("i");
+                    if (targetInput.type === "password") {
+                        targetInput.type = "text";
+                        icon.classList.remove("bi-eye");
+                        icon.classList.add("bi-eye-slash");
+                    } else {
+                        targetInput.type = "password";
+                        icon.classList.remove("bi-eye-slash");
+                        icon.classList.add("bi-eye"); 
+                    }
+                });
+            });
+
+            atualizarRegras();
+            atualizarConferencia();
+
+        })();
     </script>
 }
