@@ -6,6 +6,7 @@ using UniVest.Models;
 using UniVest.ViewModels;
 using UniVest.Data;
 using UniVest.Helpers;
+using System.Text.RegularExpressions;
 
 namespace UniVest.Controllers;
 
@@ -164,6 +165,77 @@ public class AccountController : Controller
         return View(usuario);
     }
 
+    [HttpPost]
+    // ✅ 1. MUDE O NOME DO PARÂMETRO PARA "Foto" PARA CORRESPONDER AO <input>
+    public async Task<IActionResult> Perfil(string email, string nome, string Foto)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        // Atualiza o nome (se houver lógica para edição no futuro)
+        user.Nome = nome;
+
+        // ✅ 2. VERIFIQUE SE A STRING "Foto" (BASE64) FOI ENVIADA
+    if (!string.IsNullOrEmpty(Foto))
+    {
+        try
+        {
+            // Limpa a string Base64, removendo o cabeçalho (ex: "data:image/png;base64,")
+            var base64Data = Regex.Match(Foto, @"data:image/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
+            byte[] imageBytes = Convert.FromBase64String(base64Data);
+
+            // Define um nome de arquivo único e a extensão (usaremos .jpg como padrão, mas pode ser melhorado)
+            string nomeArquivo = user.Id + ".jpg"; // Usar o ID do usuário garante que a foto seja sempre substituída
+            string caminhoDiretorio = Path.Combine(_host.WebRootPath, "img", "usuarios");
+
+            // Garante que o diretório exista
+            if (!Directory.Exists(caminhoDiretorio))
+            {
+                Directory.CreateDirectory(caminhoDiretorio);
+            }
+
+            string caminhoCompleto = Path.Combine(caminhoDiretorio, nomeArquivo);
+
+            // Salva o arquivo no disco
+            await System.IO.File.WriteAllBytesAsync(caminhoCompleto, imageBytes);
+
+            // ✅ 3. ATUALIZE O CAMPO "Foto" DO USUÁRIO COM O CAMINHO DO ARQUIVO
+            user.Foto = "/img/usuarios/" + nomeArquivo; // Use barras normais para URLs web
+        }
+        catch (Exception ex)
+        {
+            // Se algo der errado na conversão ou salvamento, registre o erro.
+            _logger.LogError(ex, "Erro ao salvar a foto de perfil do usuário {UserId}", user.Id);
+            // Opcional: Adicionar uma mensagem de erro para o usuário
+            // ModelState.AddModelError("Foto", "Ocorreu um erro ao salvar sua imagem.");
+            // return View(user); // Retorna para a view mostrando o erro
+        }
+    }
+
+        // Salva as alterações no banco de dados
+        var result = await _userManager.UpdateAsync(user);
+
+        if (result.Succeeded)
+        {
+            TempData["SuccessMessage"] = "Perfil atualizado com sucesso!";
+        }
+        else
+        {
+            // Adiciona erros ao ModelState se a atualização falhar
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            // Se houver um erro, o ideal é retornar para a view para mostrá-lo
+            // return View(user); 
+    }
+
+    return RedirectToAction("Perfil");
+}
 
     [HttpPost]
     [ValidateAntiForgeryToken]
