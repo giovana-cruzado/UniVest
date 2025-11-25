@@ -8,60 +8,40 @@
     <link rel="stylesheet" href="~/css/delete.css">
 }
 
-<body>
-    <div class="navbar" style="padding-left: 210px; padding-right: 160px;">
-        <div>
-            <a asp-action="Index" asp-controller="Home" style="padding-right: 0; justify-content: flex-start;">
-                <img src="~/img/uv.png" alt="Logo" style="height: 40px; width: auto;" />
-            </a>
+<div class="content-wrapper">
+    <aside class="sidebar">
+        <div class="profile-avatar">
+            <div class="avatar-circle" id="avatarPreview">
+                @if (!string.IsNullOrEmpty(Model.Foto))
+                {
+                    <img src="@Model.Foto" alt="Foto de perfil" class="avatar-image" />
+                }
+                else
+                {
+                    <i class="bi bi-camera-fill"></i>
+                }
+            </div>
+            <input type="file" id="fotoInput" accept="image/*" style="display: none;" />
         </div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="@Url.Action("Perfil", "Account")" class="menu-item active">Detalhes</a></li>
+                <li><a href="~/Account/MudarSenha" class="menu-item">Mudar Senha</a></li>
+                <li><a href="@Url.Action("DeletarConta", "Account")" class="menu-item">Deletar Conta</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-        <div style="display: flex; align-items: center; gap: 30px;">
-            <a href="~/Home/Favorito" title="Meus Favoritos" style="padding-right: 0; justify-content: center;">
-                <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
-            </a>
-            <partial name="_LoginPartial" />
+    <main class="content">
+        <h2 class="content-title">Deletar Conta</h2>
+
+        <div class="delete-info-container">
+            <p class="delete-info-text">Deletar sua conta irá apagar todos seus dados.</p>
+
+            <form method="post" class="form-container form-delete-initial">
+                <button type="submit" class="btn-submit btn-delete-confirm">Confirmar</button>
+            </form>
         </div>
-    </div>
-
-        <div class="content-wrapper">
-            <aside class="sidebar">
-                <div class="profile-avatar">
-                    <div class="avatar-circle" id="avatarPreview">
-                        @if (!string.IsNullOrEmpty(Model.Foto))
-                        {
-                            <img src="@Model.Foto" alt="Foto de perfil" class="avatar-image" />
-                        }
-                        else
-                        {
-                            <i class="bi bi-camera-fill"></i>
-                        }
-                    </div>
-                    <input type="file" id="fotoInput" accept="image/*" style="display: none;" />
-                </div>
-                <nav class="sidebar-menu">
-                    <ul>
-                        <li><a href="@Url.Action("Perfil", "Account")" class="menu-item active">Detalhes</a></li>
-                        <li><a href="~/Account/MudarSenha" class="menu-item">Mudar Senha</a></li>
-                        <li><a href="@Url.Action("DeletarConta", "Account")" class="menu-item">Deletar Conta</a></li>
-                    </ul>
-                </nav>
-            </aside>
-
-            <main class="content">
-                <h2 class="content-title">Deletar Conta</h2>
-
-                <div class="delete-info-container">
-                    <p class="delete-info-text">Deletar sua conta irá apagar todos seus dados.</p>
-                    
-                    <form method="post" class="form-container form-delete-initial">
-                        <button type="submit" class="btn-submit btn-delete-confirm">Confirmar</button>
-                    </form>
-                </div>
-            </main>
-        </div>
-    </div>
-    
-</body>
-
-</html>
+    </main>
+</div>
+</div>

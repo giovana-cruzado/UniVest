@@ -35,15 +35,12 @@
 
         <form asp-action="Perfil" asp-controller="Account" method="post" enctype="multipart/form-data"
             class="form-container" id="perfilForm">
-
-            <!-- ✅ 1. ADICIONE ESTE CAMPO OCULTO PARA ARMAZENAR A IMAGEM -->
             <input type="hidden" id="fotoBase64" name="Foto" />
 
             <div class="input-group">
                 <label for="email">Email</label>
                 <div class="input-wrapper">
                     <input type="email" id="email" name="email" value="@Model.Email" readonly />
-                    <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
                 </div>
             </div>
 
@@ -51,7 +48,6 @@
                 <label for="nome">Nome</label>
                 <div class="input-wrapper">
                     <input type="text" id="nome" name="nome" value="@Model.Nome" readonly />
-                    <a href="#" class="edit-icon"><i class="bi bi-pencil-fill"></i></a>
                 </div>
             </div>
 
