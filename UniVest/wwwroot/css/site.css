@@ -80,6 +80,7 @@ h1 {
   font-size: 45px;
   font-weight: 700;
   margin-bottom: 10px;
+  padding-left: 60px;
   line-height: 50px;
 }
 
@@ -89,6 +90,7 @@ p {
   max-width: 600px;
   color: #000000;
   margin-bottom: 2rem;
+  padding-left: 60px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -96,17 +98,19 @@ p {
   background-color: #683CE7;
   color: white;
   border: none;
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 2rem;
   font-size: 1rem;
   border-radius: 999px;
   text-decoration: none;
-  margin-right: 1rem;
+  margin-left: 60px;
+  margin-right: -30px;
   display: inline-block;
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
   background-color: #582bca;
+  color: white;
 }
 
 .btn-secondary {

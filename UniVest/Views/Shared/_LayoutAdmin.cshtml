@@ -12,16 +12,13 @@
     <link href="~/css/admin.css" rel="stylesheet" />
     <link href="~/css/admin2.css" rel="stylesheet" />
     <link href="~/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark">
-        <a asp-action="Index" asp-controller="Home" style="padding-right: 0; justify-content: flex-start;">
-                <img src="~/img/uv.png" alt="Logo" style="height: 40px; width: auto;" />
-            </a></a>
+        <a asp-action="Index" asp-controller="Home" style="padding-right: 0; justify-content: flex-start;"></a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars fs-4"></i></button>
         <ul class="navbar-nav ms-auto">
@@ -29,14 +26,11 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw fs-4"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Configurações</a></li>
-                    <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li>
                         <a class="dropdown-item" asp-action="Index" asp-controller="Home">Sair</a>
                     </li>
-
                 </ul>
             </li>
         </ul>

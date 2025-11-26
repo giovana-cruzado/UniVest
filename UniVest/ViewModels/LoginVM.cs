@@ -9,8 +9,10 @@ public class LoginVM
     public string Email { get; set; }
 
     [Display(Name = "Senha", Prompt = "Digite sua senha")]
-    [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).+$",
-        ErrorMessage = "A senha deve conter ao menos 1 caractere especial, 1 letra minúscula, 1 letra maiúscula e no mínimo 6 caracteres.")]
+    [Required(ErrorMessage = "Informe a senha.")]
+
+    // [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).+$",
+    //     ErrorMessage = "A senha deve conter ao menos 1 caractere especial, 1 letra minúscula, 1 letra maiúscula e no mínimo 6 caracteres.")]
     [DataType(DataType.Password)]
 
     public string Senha { get; set; }

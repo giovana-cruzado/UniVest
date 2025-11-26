@@ -5,6 +5,26 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/login.css">
+    <style>
+        .password-container {
+            position: relative;
+        }
+
+        .login-box input[type="password"],
+        .login-box input[type="text"] {
+            padding-right: 40px; 
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+            font-size: 1.2rem;
+        }
+    </style>
 }
 
 <div class="container">
@@ -13,7 +33,14 @@
         <form asp-action="Login" asp-controller="Account" method="post">
             <div asp-validation-summary="ModelOnly" hidden></div>
             <input asp-for="Email" placeholder="Email" required />
-            <input asp-for="Senha" type="password" placeholder="Senha" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <div class="password-container">
+                <input asp-for="Senha" type="password" placeholder="Senha" required class="form-control" id="senhaLogin" />
+                <span class="toggle-password" data-target="senhaLogin"><i class="bi bi-eye"></i></span>
+            </div>
+            <span asp-validation-for="Senha" class="text-danger"></span>
+
             <div class="checkbox">
                 <input asp-for="Lembrar" type="checkbox" id="manter" />
                 <label for="manter">Manter Conectado</label>
@@ -41,5 +68,30 @@
                 mensagemErro,
                 'error'
             );
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('.toggle-password[data-target="senhaLogin"]');
+            
+            if (togglePassword) {
+                const targetId = togglePassword.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+
+                if (passwordInput) {
+                    togglePassword.addEventListener('click', function () {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+                        
+                        const icon = this.querySelector('i');
+                        if (icon.classList.contains('bi-eye')) {
+                            icon.classList.remove('bi-eye');
+                            icon.classList.add('bi-eye-slash');
+                        } else {
+                            icon.classList.remove('bi-eye-slash');
+                            icon.classList.add('bi-eye');
+                        }
+                    });
+                }
+            }
+        });
     </script>
 }
