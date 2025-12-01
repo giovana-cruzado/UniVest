@@ -60,7 +60,7 @@
                 <span class="tag">@item.Campus?.Estado</span>
                 <span class="tag">@item.Modalidade?.Nome</span>
             </div>
-            <h3>@item.Campus?.Universidade?.Nome - @item.Curso?.Nome</h3>
+            <h3>@item.Campus?.Universidade?.Nome-@item.Curso?.Nome</h3>
             <p>@item.Campus?.Nome</p>
             <a asp-controller="Home" asp-action="Detalhes" asp-route-id="@item.Id" class="arrow-link">
                 ➜

@@ -85,7 +85,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://documento.vunesp.com.br/documento/stream/NjY3OTg0OQ%3d%3d",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 2
@@ -98,7 +98,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.comvest.unicamp.br/wp-content/uploads/2025/07/Edital-Vestibular-Unicamp-2026.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 3
@@ -111,7 +111,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.federalonline.com.br/blog-noticias/edital-ufpr-2026",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 4
@@ -124,7 +124,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://sites.uel.br/vestibular/categoria-edital/edital/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 5
@@ -137,7 +137,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.vestibular.uem.br/evento_58.html",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 6
@@ -150,7 +150,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.unioeste.br/portal/publicacoes-do-ingresso/publicacoes-vestibular-2026/81045-unioeste-2026-unioeste-adota-novas-formas-de-ingresso",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 7
@@ -163,7 +163,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www2.uepg.br/cps/wp-content/uploads/sites/270/2025/07/1-MANUAL-DO-CANDIDATO-VESTIBULAR-2025.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 8
@@ -176,7 +176,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.vestibular.uenp.edu.br/2025/index.php",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 9
@@ -189,7 +189,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://vestibular.unespar.edu.br/arquivos-vestibular-2025-2026/editais/manual-do-candidato",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 10
@@ -202,7 +202,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://vestibularunificado2026.ufsc.br/files/2025/10/Edital-Vestibular-2026-retificado.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 11
@@ -215,7 +215,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.ufrgs.br/coperse/wp-content/uploads/2025/08/EDITAL-CV-2026.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 12
@@ -228,7 +228,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://portal.ufpel.edu.br/editais/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 13
@@ -241,7 +241,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.ufsm.br/app/uploads/sites/342/2025/06/EDITAL_VESTIBULAR_2026-4.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 14
@@ -254,7 +254,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://documento.vunesp.com.br/documento/stream/Njk5OTU1NQ%3d%3d",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 15
@@ -267,7 +267,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://editais.ufrr.br/processo/141/vestibular-2026",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 16
@@ -280,7 +280,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.uerr.edu.br/wp-content/uploads/2025/02/uerr-2025-edital.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 17
@@ -293,7 +293,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.uft.edu.br/noticias/aberto-edital-para-o-vestibular-2025-1-com-718-vagas",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 18
@@ -306,7 +306,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.unitins.br/Concursos/download/arquivos/[638942417443253829]10-edital1-abertura-vest-geral-unit-261-retificacao3.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 19
@@ -319,7 +319,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://vestibular2026.uneb.br/?page_id=493",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 20
@@ -332,7 +332,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.uesb.br/vestibular/?post_type=editais",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 21
@@ -345,7 +345,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://processodeingresso.upe.pe.gov.br/arquivos/ssa1_2026/202506160949_-_SSA_1_REVISADO_-_16-06-2025_REVISADO_-_FINAL_COM_AJUSTE.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 22
@@ -358,7 +358,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://portal.unicap.br/documents/d/unicap/edital-vestibular-unicap-2025-2-2-selecao",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 23
@@ -371,7 +371,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.ufpe.br/ead/editais",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 24
@@ -384,7 +384,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://pos-graduacao.uepb.edu.br/profei/2025/09/08/processo-seletivo-2026/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 25
@@ -397,7 +397,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.uncisal.edu.br/ingresso",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 26
@@ -410,7 +410,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.uema.br/wp-content/uploads/2025/07/Edital_57-2025-GR-UEMA_-_PAES_2026_FINAL.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 27
@@ -423,7 +423,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.cev.uece.br/vestibular20261/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 28
@@ -436,7 +436,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.urca.br/cev/wp-content/uploads/sites/39/2025/08/EDITAL-INSCRICAO-PSU-2025-2-demais-campus-e-2026-1-Iguatu-e-mauriti.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 29
@@ -449,7 +449,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://academico.uvanet.br/common/recursos/c92c5aea443a331848b4f2b4444a88d6.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 30
@@ -462,7 +462,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://fatweb.s3.amazonaws.com/vestibularfatec/documentos/1SEM-26/ManualCandidato.pdf?id=202612",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 31
@@ -475,7 +475,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.vestibular.ita.br/instrucoes/edital_2025.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 32
@@ -488,7 +488,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://site.unifesp.br/uab/editais",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 33
@@ -501,7 +501,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.vestibular.uerj.br/anexos/241/Manual_1fase_2024_Edital.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 34
@@ -514,7 +514,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://inscricoes.ime.eb.br/documentos/Manual_do_Candidato_2025.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 35
@@ -527,7 +527,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://backend.copeve.ufmg.br/uploads/Edital_Seriado_2025_ead2f27063.html",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 36
@@ -540,7 +540,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.portalselecao.ufu.br/servicos/Edital/listar/vestibular",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 37
@@ -553,7 +553,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www2.ufjf.br/copese/wp-content/uploads/sites/42/2025/09/08_2025_Edital-08-2025_PISM-2026_Retificado-pelos-10-11-e-12_2025.pdf",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 38
@@ -566,7 +566,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://vestibular.uemg.br/index.php?option=com_content&view=article&id=1116&Itemid=955",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 39
@@ -579,7 +579,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://www.cebraspe.org.br/vestibulares/VESTUNB_26",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 40
@@ -592,7 +592,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://ufr.edu.br/ingresso/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 41
@@ -605,7 +605,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://portal.ufgd.edu.br/vestibular/processo-seletivo-vestibular-psv/psv-2026",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 42
@@ -618,7 +618,7 @@ public class AppDbSeed
         DataPrevista2 = DateTime.Parse("14/12/2025"),
         DataPrevista3 = DateTime.Parse("15/12/2025"),
         DataPrevista4 = DateTime.Parse("09/12/2025"),
-        EditalUni = "https://www.fuvest.br/vestibular-da-usp/",
+        EditalUni = "https://ingresso.ufms.br/processo/vestibular/2026/",
         EditalProvao = "blob:https://www.doe.sp.gov.br/38ebf651-5a98-4e78-8024-f9b8fc4c86d8",
         PrecoInscricao = 211.00m,
         UniversidadeId = 43
@@ -676,9 +676,154 @@ public class AppDbSeed
                 Nome = "Química",
             },
             new Curso {
-                Id = 13,
+                Id = 14,
+                Nome = "Física",
+            },
+            new Curso {
+                Id = 15,
+                Nome = "Engenharia Elétrica",
+            },
+            new Curso {
+                Id = 16,
+                Nome = "Direito",
+            },
+            new Curso {
+                Id = 17,
+                Nome = "Letras",
+            },
+            new Curso {
+                Id = 18,
+                Nome = "Odontologia",
+            },
+            new Curso {
+                Id = 19,
+                Nome = "Nutrição",
+            },
+            new Curso {
+                Id = 20,
+                Nome = "Geografia",
+            },
+            new Curso {
+                Id = 21,
+                Nome = "História",
+            },
+            new Curso {
+                Id = 22,
+                Nome = "Biologia",
+            },
+            new Curso {
+                Id = 23,
+                Nome = "Engenharia de Produção",
+            },
+            new Curso {
+                Id = 24,
+                Nome = "Enfermagem",
+            },
+            new Curso {
+                Id = 25,
+                Nome = "Agronomia",
+            },
+            new Curso {
+                Id = 26,
+                Nome = "Farmácia",
+            },
+            new Curso {
+                Id = 27,
+                Nome = "Relações Públicas",
+            },
+            new Curso {
+                Id = 28,
+                Nome = "Relações Internacionais",
+            },
+            new Curso {
+                Id = 29,
+                Nome = "Artes Visuais",
+            },
+            new Curso {
+                Id = 30,
+                Nome = "Meteorologia",
+            },
+            new Curso {
+                Id = 31,
+                Nome = "Terapia Ocupacional",
+            },
+            new Curso {
+                Id = 32,
+                Nome = "Filosofia",
+            },
+            new Curso {
+                Id = 33,
+                Nome = "Fonoaudiologia",
+            },
+            new Curso {
+                Id = 34,
+                Nome = "Turismo",
+            },
+            new Curso {
+                Id = 35,
+                Nome = "Educação Física",
+            },
+            new Curso {
+                Id = 36,
+                Nome = "Zootecnia",
+            },
+            new Curso {
+                Id = 37,
+                Nome = "Teatro",
+            },
+            new Curso {
+                Id = 38,
+                Nome = "Ciências Sociais",
+            },
+            new Curso {
+                Id = 39,
+                Nome = "Sistemas de Informação",
+            },
+            new Curso {
+                Id = 40,
+                Nome = "Engenharia Agronômica",
+            },
+            new Curso {
+                Id = 41,
+                Nome = "Arquivologia",
+            },
+            new Curso {
+                Id = 42,
+                Nome = "Jornalismo",
+            },
+            new Curso {
+                Id = 43,
                 Nome = "Medicina Veterinária",
-            }
+            },
+            new Curso {
+                Id = 44,
+                Nome = "Geologia",
+            },
+            new Curso {
+                Id = 45,
+                Nome = "Oceanografia",
+            },
+            new Curso {
+                Id = 46,
+                Nome = "Publicidade e Propaganda",
+            },
+            new Curso {
+                Id = 47,
+                Nome = "Rádio, TV e Internet",
+            },
+            new Curso {
+                Id = 48,
+                Nome = "Serviço Social",
+            },
+            new Curso {
+                Id = 49,
+                Nome = "Engenharia de Pesca",
+            },
+            new Curso {
+                Id = 50,
+                Nome = "Marketing",
+            },
+
         };
         builder.Entity<Curso>().HasData(cursos);
 
@@ -687,30 +832,142 @@ public class AppDbSeed
                 Id = 1,
                 Estado = "São Paulo",
                 Nome = "Campinas",
-                Cidade = "",
+                Cidade = "Campinas",
                 UniversidadeId = 3,
             },
             new Campus {
                 Id = 2,
                 Estado = "São Paulo",
                 Nome = "São Paulo",
-                Cidade = "",
+                Cidade = "São Paulo",
                 UniversidadeId = 1,
             },
             new Campus {
                 Id = 3,
                 Estado = "São Paulo",
                 Nome = "Bauru",
-                Cidade = "",
+                Cidade = "Bauru",
                 UniversidadeId = 2,
             },
             new Campus {
-                Id = 3,
-                Estado = "São Paulo",
-                Nome = "Bauru",
-                Cidade = "",
-                UniversidadeId = 2,
-            }
+                Id = 4,
+                Estado = "Paraná",
+                Nome = "Curitiba",
+                Cidade = "Curitiba",
+                UniversidadeId = 4,
+            },
+            new Campus {
+                Id = 5,
+                Estado = "Santa Catarina",
+                Nome = "Florianópolis",
+                Cidade = "Florianópolis",
+                UniversidadeId = 11,
+            },
+            new Campus {
+                Id = 6,
+                Estado = "Rio Grande do Sul",
+                Nome = "Campus Central",
+                Cidade = "Porto Alegre",
+                UniversidadeId = 12,
+            },
+            new Campus {
+                Id = 7,
+                Estado = "Amazonas",
+                Nome = "Manaus",
+                Cidade = "Manaus",
+                UniversidadeId = 15,
+            },
+            new Campus {
+                Id = 8,
+                Estado = "Roraima",
+                Nome = "Campus Paricarana",
+                Cidade = "Boa Vista",
+                UniversidadeId = 16,
+            },
+            new Campus {
+                Id = 9,
+                Estado = "Tocantins",
+                Nome = "Palmas",
+                Cidade = "Palmas",
+                UniversidadeId = 18,
+            },
+            new Campus {
+                Id = 10,
+                Estado = "Bahia",
+                Nome = "DHC",
+                Cidade = "Salvador",
+                UniversidadeId = 18,
+            },
+            new Campus {
+                Id = 11,
+                Estado = "Pernambuco",
+                Nome = "Recife",
+                Cidade = "Recife",
+                UniversidadeId = 24,
+            },
+            new Campus {
+                Id = 12,
+                Estado = "Paraíba",
+                Nome = "Campina Grande",
+                Cidade = "Campina Grande",
+                UniversidadeId = 25,
+            },
+            new Campus {
+                Id = 13,
+                Estado = "Alagoas",
+                Nome = "Ciências da Saúde de Alagoas",
+                Cidade = "Maceió",
+                UniversidadeId = 26,
+            },
+            new Campus {
+                Id = 14,
+                Estado = "Maranhão",
+                Nome = "São Luís",
+                Cidade = "São Luís",
+                UniversidadeId = 27,
+            },
+            new Campus {
+                Id = 15,
+                Estado = "Ceará",
+                Nome = "Fortaleza",
+                Cidade = "Fortaleza",
+                UniversidadeId = 28,
+            },
+            new Campus {
+                Id = 16,
+                Estado = "Rio de Janeiro",
+                Nome = "Maracanã",
+                Cidade = "Rio de Janeiro",
+                UniversidadeId = 34,
+            },
+            new Campus {
+                Id = 17,
+                Estado = "Minas Gerais",
+                Nome = "Belo Horizonte",
+                Cidade = "Belo Horizonte",
+                UniversidadeId = 36,
+            },
+            new Campus {
+                Id = 18,
+                Estado = "Distrito Federal",
+                Nome = "Darcy Ribeiro",
+                Cidade = "Brasília",
+                UniversidadeId = 40,
+            },
+            new Campus {
+                Id = 19,
+                Estado = "Mato Grosso",
+                Nome = "Rondonópolis",
+                Cidade = "Rondonópolis",
+                UniversidadeId = 41,
+            },
+            new Campus {
+                Id = 20,
+                Estado = "Mato Grosso do Sul",
+                Nome = "Dourados",
+                Cidade = "Dourados",
+                UniversidadeId = 42,
+            },
         };
         builder.Entity<Campus>().HasData(campus);
 
@@ -758,81 +1015,137 @@ public class AppDbSeed
             },
             new CampusCurso {
                 Id = 5,
-                CampusId = 1,
+                CampusId = 4,
+                CursoId = 24,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 10
+            },
+            new CampusCurso {
+                Id = 6,
+                CampusId = 5,
                 CursoId = 4,
                 Periodo = Periodo.Integral,
                 ModalidadeId = 1,
                 Duracao = 12
             },
             new CampusCurso {
-                Id = 6,
-                CampusId = 2,
-                CursoId = 3,
-                Periodo = Periodo.Diurno,
-                ModalidadeId = 1,
-                Duracao = 10
-            },
-            new CampusCurso {
                 Id = 7,
-                CampusId = 2,
-                CursoId = 3,
+                CampusId = 6,
+                CursoId = 29,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 1,
-                Duracao = 10
+                ModalidadeId = 2,
+                Duracao = 8
             },
             new CampusCurso {
                 Id = 8,
-                CampusId = 2,
-                CursoId = 3,
+                CampusId = 7,
+                CursoId = 35,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 1,
-                Duracao = 10
+                ModalidadeId = 2,
+                Duracao = 8
             },
             new CampusCurso {
                 Id = 9,
-                CampusId = 2,
-                CursoId = 3,
-                Periodo = Periodo.Diurno,
+                CampusId = 8,
+                CursoId = 36,
+                Periodo = Periodo.Integral,
                 ModalidadeId = 1,
                 Duracao = 10
             },
             new CampusCurso {
                 Id = 10,
-                CampusId = 2,
-                CursoId = 3,
-                Periodo = Periodo.Diurno,
-                ModalidadeId = 1,
-                Duracao = 10
+                CampusId = 9,
+                CursoId = 11,
+                Periodo = Periodo.Matutino,
+                ModalidadeId = 2,
+                Duracao = 8
             },
             new CampusCurso {
                 Id = 11,
-                CampusId = 2,
-                CursoId = 3,
+                CampusId = 10,
+                CursoId = 21,
                 Periodo = Periodo.Diurno,
-                ModalidadeId = 1,
-                Duracao = 10
+                ModalidadeId = 2,
+                Duracao = 8
             },
             new CampusCurso {
                 Id = 12,
-                CampusId = 2,
-                CursoId = 3,
-                Periodo = Periodo.Diurno,
+                CampusId = 11,
+                CursoId = 23,
+                Periodo = Periodo.Integral,
                 ModalidadeId = 1,
                 Duracao = 10
             },
             new CampusCurso {
                 Id = 13,
-                CampusId = 2,
-                CursoId = 3,
-                Periodo = Periodo.Diurno,
+                CampusId = 12,
+                CursoId = 6,
+                Periodo = Periodo.Integral,
                 ModalidadeId = 1,
                 Duracao = 10
             },
             new CampusCurso {
                 Id = 14,
-                CampusId = 2,
-                CursoId = 3,
+                CampusId = 13,
+                CursoId = 33,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 8
+            },
+            new CampusCurso {
+                Id = 15,
+                CampusId = 14,
+                CursoId = 28,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 8
+            },
+            new CampusCurso {
+                Id = 16,
+                CampusId = 15,
+                CursoId = 48,
+                Periodo = Periodo.Noturno,
+                ModalidadeId = 1,
+                Duracao = 8
+            },
+            new CampusCurso {
+                Id = 17,
+                CampusId = 16,
+                CursoId = 16,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 10
+            },
+            new CampusCurso {
+                Id = 18,
+                CampusId = 17,
+                CursoId = 32,
                 Periodo = Periodo.Diurno,
+                ModalidadeId = 2,
+                Duracao = 8
+            },
+            new CampusCurso {
+                Id = 19,
+                CampusId = 18,
+                CursoId = 43,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 10
+            },
+            new CampusCurso {
+                Id = 20,
+                CampusId = 19,
+                CursoId = 7,
+                Periodo = Periodo.Integral,
+                ModalidadeId = 1,
+                Duracao = 10
+            },
+            new CampusCurso {
+                Id = 21,
+                CampusId = 20,
+                CursoId = 25,
+                Periodo = Periodo.Integral,
                 ModalidadeId = 1,
                 Duracao = 10
             },
