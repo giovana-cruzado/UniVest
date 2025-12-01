@@ -19,45 +19,45 @@ public class AppDbSeed
             new Universidade { Id = 1, Nome = "Universidade de São Paulo", Sigla = "USP", },
             new Universidade { Id = 2, Nome = "Universidade Estadual Paulista", Sigla = "Unesp" },
             new Universidade { Id = 3, Nome = "Universidade Estadual de Campinas", Sigla = "Unicamp" },
-            new Universidade { Id = 4, Nome = "Universidade Federal do Paraná", Sigla = "UFPR"}
-            new Universidade { Id = 5, Nome = "Universidade Estadual de Londrina", Sigla = "UEL"}
-            new Universidade { Id = 6, Nome = "Universidade Estadual de Maringá", Sigla = "UEM"}
-            new Universidade { Id = 7, Nome = "Universidade Estadual do Oeste do Paraná", Sigla = "UNIOESTE"}
-            new Universidade { Id = 8, Nome = "Universidade Estadual de Ponta Grossa", Sigla = "UEPG"}
-            new Universidade { Id = 9, Nome = "Universidade Estadual do Norte do Paraná", Sigla = "UENP"}
-            new Universidade { Id = 10, Nome = "Universidade Estadual do Paraná", Sigla = "UNESPAR"}
-            new Universidade { Id = 11, Nome = "Universidade Federal de Santa Catarina", Sigla = "UFSC"}
-            new Universidade { Id = 12, Nome = "Universidade Federal do Rio Grande do Sul", Sigla = "UFRGS"}
-            new Universidade { Id = 13, Nome = "Universidade Federal de Pelotas", Sigla = "UFPEL"}
-            new Universidade { Id = 14, Nome = "Universidade Federal de Santa Maria", Sigla = "UFSM"}
-            new Universidade { Id = 15, Nome = "Universidade do Estado do Amazonas ", Sigla = "UEA"}
-            new Universidade { Id = 16, Nome = "Universidade Federal de Roraima", Sigla = "UFRR"}
-            new Universidade { Id = 17, Nome = "Universidade Estadual de Roraima", Sigla = "UERR"}
-            new Universidade { Id = 18, Nome = "Universidade Federal do Tocantins", Sigla = "UFT"}
-            new Universidade { Id = 19, Nome = "Universidade Estadual do Tocantins", Sigla = "UNITINS"}
-            new Universidade { Id = 20, Nome = "Universidade do Estado da Bahia", Sigla = "UNEB"}
-            new Universidade { Id = 21, Nome = "Universidade Estadual do Sudoeste da Bahia", Sigla = "UESB"}
-            new Universidade { Id = 22, Nome = "Universidade de Pernambuco", Sigla = "UPE"}
-            new Universidade { Id = 23, Nome = "Universidade Católica de Pernambuco", Sigla = "UNICAP"}
-            new Universidade { Id = 24, Nome = "Universidade Federal de Pernambuco", Sigla = "UFPE"}
-            new Universidade { Id = 25, Nome = "Universidade Estadual da Paraíba", Sigla = "UEPB"}
-            new Universidade { Id = 26, Nome = "Universidade Estadual de Ciências da Saúde de Alagoas", Sigla = "UNCISAL"}
-            new Universidade { Id = 27, Nome = "Universidade Estadual do Maranhão", Sigla = "UEMA"}
-            new Universidade { Id = 28, Nome = "Universidade Estadual do Ceará", Sigla = "UECE"}
-            new Universidade { Id = 29, Nome = "Universidade Regional do Cariri", Sigla = "URCA"}
-            new Universidade { Id = 30, Nome = "Universidade Estadual do Vale do Acaraú", Sigla = "UVA"}
-            new Universidade { Id = 31, Nome = "Faculdade de Tecnologia do Estado de São Paulo", Sigla = "FATEC"}
-            new Universidade { Id = 32, Nome = "Instituto Tecnológico de Aeronáutica", Sigla = "ITA"}
-            new Universidade { Id = 33, Nome = "Universidade Federal de São Paulo", Sigla = "UNIFESP"}
-            new Universidade { Id = 34, Nome = "Universidade do Estado do Rio de Janeiro", Sigla = "UERJ"}
-            new Universidade { Id = 35, Nome = "Instituto Militar de Engenharia", Sigla = "IME"}
-            new Universidade { Id = 36, Nome = "Universidade Federal de Minas Gerais", Sigla = "UFMG"}
-            new Universidade { Id = 37, Nome = "Universidade Federal de Uberlândia", Sigla = "UFU"}
-            new Universidade { Id = 38, Nome = "Universidade Federal de Juíz de Fora", Sigla = "UFJF"}
-            new Universidade { Id = 39, Nome = "Universidade Estadual de Minas Gerais", Sigla = "UEMG"}
-            new Universidade { Id = 40, Nome = "Universidade de Brasília", Sigla = "UNB"}
-            new Universidade { Id = 41, Nome = "Universidade Federal de Rondonópolis", Sigla = "UFR"}
-            new Universidade { Id = 42, Nome = "Universidade Federal da Grande Dourados", Sigla = "UFGD"}
+            new Universidade { Id = 4, Nome = "Universidade Federal do Paraná", Sigla = "UFPR"},
+            new Universidade { Id = 5, Nome = "Universidade Estadual de Londrina", Sigla = "UEL"},
+            new Universidade { Id = 6, Nome = "Universidade Estadual de Maringá", Sigla = "UEM"},
+            new Universidade { Id = 7, Nome = "Universidade Estadual do Oeste do Paraná", Sigla = "UNIOESTE"},
+            new Universidade { Id = 8, Nome = "Universidade Estadual de Ponta Grossa", Sigla = "UEPG"},
+            new Universidade { Id = 9, Nome = "Universidade Estadual do Norte do Paraná", Sigla = "UENP"},
+            new Universidade { Id = 10, Nome = "Universidade Estadual do Paraná", Sigla = "UNESPAR"},
+            new Universidade { Id = 11, Nome = "Universidade Federal de Santa Catarina", Sigla = "UFSC"},
+            new Universidade { Id = 12, Nome = "Universidade Federal do Rio Grande do Sul", Sigla = "UFRGS"},
+            new Universidade { Id = 13, Nome = "Universidade Federal de Pelotas", Sigla = "UFPEL"},
+            new Universidade { Id = 14, Nome = "Universidade Federal de Santa Maria", Sigla = "UFSM"},
+            new Universidade { Id = 15, Nome = "Universidade do Estado do Amazonas ", Sigla = "UEA"},
+            new Universidade { Id = 16, Nome = "Universidade Federal de Roraima", Sigla = "UFRR"},
+            new Universidade { Id = 17, Nome = "Universidade Estadual de Roraima", Sigla = "UERR"},
+            new Universidade { Id = 18, Nome = "Universidade Federal do Tocantins", Sigla = "UFT"},
+            new Universidade { Id = 19, Nome = "Universidade Estadual do Tocantins", Sigla = "UNITINS"},
+            new Universidade { Id = 20, Nome = "Universidade do Estado da Bahia", Sigla = "UNEB"},
+            new Universidade { Id = 21, Nome = "Universidade Estadual do Sudoeste da Bahia", Sigla = "UESB"},
+            new Universidade { Id = 22, Nome = "Universidade de Pernambuco", Sigla = "UPE"},
+            new Universidade { Id = 23, Nome = "Universidade Católica de Pernambuco", Sigla = "UNICAP"},
+            new Universidade { Id = 24, Nome = "Universidade Federal de Pernambuco", Sigla = "UFPE"},
+            new Universidade { Id = 25, Nome = "Universidade Estadual da Paraíba", Sigla = "UEPB"},
+            new Universidade { Id = 26, Nome = "Universidade Estadual de Ciências da Saúde de Alagoas", Sigla = "UNCISAL"},
+            new Universidade { Id = 27, Nome = "Universidade Estadual do Maranhão", Sigla = "UEMA"},
+            new Universidade { Id = 28, Nome = "Universidade Estadual do Ceará", Sigla = "UECE"},
+            new Universidade { Id = 29, Nome = "Universidade Regional do Cariri", Sigla = "URCA"},
+            new Universidade { Id = 30, Nome = "Universidade Estadual do Vale do Acaraú", Sigla = "UVA"},
+            new Universidade { Id = 31, Nome = "Faculdade de Tecnologia do Estado de São Paulo", Sigla = "FATEC"},
+            new Universidade { Id = 32, Nome = "Instituto Tecnológico de Aeronáutica", Sigla = "ITA"},
+            new Universidade { Id = 33, Nome = "Universidade Federal de São Paulo", Sigla = "UNIFESP"},
+            new Universidade { Id = 34, Nome = "Universidade do Estado do Rio de Janeiro", Sigla = "UERJ"},
+            new Universidade { Id = 35, Nome = "Instituto Militar de Engenharia", Sigla = "IME"},
+            new Universidade { Id = 36, Nome = "Universidade Federal de Minas Gerais", Sigla = "UFMG"},
+            new Universidade { Id = 37, Nome = "Universidade Federal de Uberlândia", Sigla = "UFU"},
+            new Universidade { Id = 38, Nome = "Universidade Federal de Juíz de Fora", Sigla = "UFJF"},
+            new Universidade { Id = 39, Nome = "Universidade Estadual de Minas Gerais", Sigla = "UEMG"},
+            new Universidade { Id = 40, Nome = "Universidade de Brasília", Sigla = "UNB"},
+            new Universidade { Id = 41, Nome = "Universidade Federal de Rondonópolis", Sigla = "UFR"},
+            new Universidade { Id = 42, Nome = "Universidade Federal da Grande Dourados", Sigla = "UFGD"},
             new Universidade { Id = 43, Nome = "Universidade Federal de Mato Grosso do Sul", Sigla = "UFMS"}
         };
         builder.Entity<Universidade>().HasData(universidades);
@@ -638,43 +638,43 @@ public class AppDbSeed
             new Curso {
                 Id = 3,
                 Nome = "Arquitetura e Urbanismo",
-            }
+            },
             new Curso {
                 Id = 4,
                 Nome = "Medicina",
-            }
+            },
             new Curso {
                 Id = 5,
                 Nome = "Engenharia Civil",
-            }
+            },
             new Curso {
                 Id = 6,
                 Nome = "Fisioterapia",
-            }
+            },
             new Curso {
                 Id = 7,
                 Nome = "Psicologia",
-            }
+            },
             new Curso {
                 Id = 8,
                 Nome = "Ciência da Computação",
-            }
+            },
             new Curso {
                 Id = 9,
                 Nome = "Design",
-            }
+            },
             new Curso {
                 Id = 10,
                 Nome = "Biomedicina",
-            }
+            },
             new Curso {
                 Id = 11,
                 Nome = "Pedagogia",
-            }
+            },
             new Curso {
                 Id = 12,
                 Nome = "Química",
-            }
+            },
             new Curso {
                 Id = 13,
                 Nome = "Medicina Veterinária",
@@ -703,7 +703,7 @@ public class AppDbSeed
                 Nome = "Bauru",
                 Cidade = "",
                 UniversidadeId = 2,
-            }
+            },
             new Campus {
                 Id = 3,
                 Estado = "São Paulo",
