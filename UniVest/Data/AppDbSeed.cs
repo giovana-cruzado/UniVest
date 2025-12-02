@@ -889,7 +889,7 @@ public class AppDbSeed
                 Estado = "Tocantins",
                 Nome = "Palmas",
                 Cidade = "Palmas",
-                UniversidadeId = 18,
+                UniversidadeId = 17,
             },
             new Campus {
                 Id = 10,
@@ -1063,7 +1063,7 @@ public class AppDbSeed
             },
             new CampusCurso {
                 Id = 11,
-                CampusId = 10,
+                CampusId = 9,
                 CursoId = 21,
                 Periodo = Periodo.Diurno,
                 ModalidadeId = 2,

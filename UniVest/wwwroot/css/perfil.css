@@ -17,35 +17,52 @@
     }
 
     .navbar {
-    background-color: #3B0D73;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 200px;
+        background-color: #3B0D73;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 200px;
     }
 
     .navbar a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 30px;
+        color: white;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 30px;
     }
 
     .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: calc(100vh - 70px);
-    padding: 0 2rem;
-    padding-left: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(100vh - 70px);
+        padding: 0 2rem;
+        padding-left: 100px;
+    }
+
+    .btn-salvar {
+        background-color: #683CE7;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 999px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn-salvar:hover {
+        background-color: #422599;
     }
 
     .heart-icon {

@@ -93,12 +93,17 @@ p {
   font-family: 'Poppins', sans-serif;
 }
 
+.botoes {
+  padding-left: 80px;
+}
+
 .botao {
   background-color: #683CE7;
   color: white;
   border: none;
   padding: 1rem 2rem;
   font-size: 1rem;
+  
   border-radius: 999px;
   text-decoration: none;
   display: inline-block;

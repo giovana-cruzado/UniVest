@@ -5,7 +5,7 @@
 .delete-info-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #333; 
+    color: #333;
     margin-bottom: 5px;
 }
 
@@ -16,22 +16,23 @@
 }
 
 .form-delete-initial {
-    display: block; 
+    display: block;
     width: 100%;
 }
 
 .btn-delete-confirm {
-    background-color: #3B0D73; 
+    background-color: #683CE7;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-delete-confirm:hover {
-    background-color: #7B68EE;
+    background-color: #422599;
 }
