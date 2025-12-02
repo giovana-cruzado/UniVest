@@ -10,7 +10,9 @@ public class Detalhe
     public string CampusNome { get; set; }
     public string Modalidade { get; set; }
     public int DuracaoSemestre { get; set; }
-    public string Img { get; set; }
+    
+    // public string Img { get; set; }
+    public int CampusId { get; set; } 
 
     public bool Favoritado { get; set; } = false;
 

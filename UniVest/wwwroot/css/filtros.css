@@ -22,6 +22,9 @@ header {
   padding-left: 30px;
 }
 
+p {
+    padding-left: 2px;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -69,11 +72,13 @@ header .icons i {
 }
 
 .filters {
+    padding-left: 200px;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px;
 }
 
 .filters select {
@@ -105,7 +110,7 @@ header .icons i {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 20px;
-    padding: 0 20px;
+    padding: 0 100px;
     margin-bottom: 40px;
 }
 
@@ -115,6 +120,7 @@ header .icons i {
     padding: 15px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
+    text-align: start;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -130,6 +136,7 @@ header .icons i {
     background-color: white;
     border: 1px solid #cbbdf5;
     border-radius: 20px;
+    justify-content: flex-start;
     padding: 2px 8px;
     font-size: 12px;
     color: #5a34a1;
@@ -143,6 +150,7 @@ header .icons i {
 .card p {
     font-size: 14px;
     color: #555;
+    text-align: start;
     margin: 5px 0 15px 0;
 }
 

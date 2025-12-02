@@ -4,6 +4,10 @@
     ViewData["Title"] = "Detalhes";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/detalhes.css" />
+}
+
 <div class="container mt-5">
 
     <div class="curso-header">
@@ -14,17 +18,18 @@
 
         <form asp-action="Favorito" method="post">
             <input type="hidden" name="id" value="@Model.CampusCursoId">
-            <button type="submit" class="btn-favorito" title="Favoritar" style="border:none;background-color:transparent">
+            <button type="submit" class="btn-favorito" title="Favoritar"
+                style="border:none;background-color:transparent">
                 <i class="@(Model.Favoritado ? "bi bi-heart-fill" : "bi bi-heart")"></i>
 
             </button>
         </form>
     </div>
 
-
     <div class="row">
         <div class="col-md-4">
-            <img src="@Model.Img" alt="Imagem do curso" class="img-fluid rounded shadow-sm" />
+            <img src="~/img/campus/@(Model.CampusId).png" alt="Imagem do campus @Model.CampusNome"
+                class="campus-image" />
         </div>
         <div class="col-md-8">
             <div class="card">
@@ -50,14 +55,10 @@
             </div>
 
             <div class="mt-4">
-                <h5>Editais</h5>
+                <h5>Edital</h5>
                 @if (!string.IsNullOrEmpty(Model.EditalUni))
                 {
                     <a href="@Model.EditalUni" class="btn btn-primary" target="_blank">Ver Edital da Universidade</a>
-                }
-                @if (!string.IsNullOrEmpty(Model.EditalProvao))
-                {
-                    <a href="@Model.EditalProvao" class="btn btn-secondary" target="_blank">Ver Edital do Provão</a>
                 }
             </div>
         </div>

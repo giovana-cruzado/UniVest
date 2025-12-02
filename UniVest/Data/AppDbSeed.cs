@@ -1181,7 +1181,7 @@ public class AppDbSeed
                 LockoutEnabled = true,
                 EmailConfirmed = true,
                 Nome = "Giovana Souza Cruzado",
-                Foto = "/img/usuarios/ddf093a6-6cb5-4ff7-9a64-83da34aee005.png"
+                Foto = "/img/usuarios/admin.jpeg"
             }
         };
         foreach (var user in usuarios)

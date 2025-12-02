@@ -226,7 +226,7 @@ public class HomeController : Controller
             CampusNome = campusCurso.Campus.Nome,
             Modalidade = campusCurso.Modalidade.Nome,
             DuracaoSemestre = campusCurso.Duracao,
-            Img = "/images/placeholder-camera.png",
+            CampusId = campusCurso.Campus.Id,
             EditalUni = editalUni,
             EditalProvao = editalProvao,
             Favoritado = favorito
