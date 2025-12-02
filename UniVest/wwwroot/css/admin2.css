@@ -1,7 +1,15 @@
 .sb-topnav {
-    height: 56px;
-    z-index: 1039; 
+    height: 80px;
+    z-index: 1039;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.nav {
+    margin-top: 50px;
+}
+
+.container {
+    margin-top: 40px;
 }
 
 .sb-topnav .navbar-brand {
@@ -22,8 +30,9 @@
 .sb-topnav i {
     font-size: 1.2rem;
 }
+
 .navbar {
-    background-color: #212529;
+    background-color: #3B0D73;
 }
 
 .navbar-nav .nav-link {
@@ -43,8 +52,77 @@
     color: #212529;
 }
 
-/* Divider do menu dropdown */
 .dropdown-divider {
     margin: 0.5rem 0;
     border-color: #dee2e6;
+}
+
+a{
+    color: #683CE7;
+}
+
+.btn-group {
+    margin-left: 1rem;
+    padding-top: 20px;
+}
+
+.btn-primary {
+    background-color: #683CE7;
+    border-color: #683CE7;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #422599;
+    border-color: #422599;
+    color: white;
+}
+
+.btn-voltar {
+    background-color: #683CE7;
+    border-color: #683CE7;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #422599;
+    color: white;
+}
+
+.btn-criar {
+    background-color: #683CE7;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-criar:hover {
+    background-color: #422599;
+    color: white;
 }

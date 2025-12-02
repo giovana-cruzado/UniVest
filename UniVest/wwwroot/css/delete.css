@@ -2,6 +2,11 @@
     margin-top: 20px;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .delete-info-title {
     font-size: 1.2rem;
     font-weight: 600;

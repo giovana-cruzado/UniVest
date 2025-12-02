@@ -6,17 +6,18 @@
 
 .btn-submit {
     background-color: #683CE7;
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        border-radius: 999px;
-        text-decoration: none;
-        display: inline-block;
-        transition: background-color 0.3s ease;
-        cursor: pointer;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    margin-right: 200px;
+    font-size: 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-submit:hover {
-    background-color: #422599; 
+    background-color: #422599;
 }
