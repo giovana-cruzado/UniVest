@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-body" >
                         <h3 class="nome-curso">@curso.NomeUniversidade - @curso.NomeCurso</h3>
-                        <p class="cidade-curso">@curso.Cidade</p>
+                        <p class="cidade-curso" style="padding: 0">@curso.Cidade</p>
                     </div>
                     <div class="card-footer">
                         <a href="@Url.Action("Detalhes", "Home", new { id = curso.CampusCursoId })" class="btn-detalhes bi bi-arrow-right">

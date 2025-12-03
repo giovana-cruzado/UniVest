@@ -18,6 +18,10 @@ body {
     background-color: var(--cor-fundo);
 }
 
+.p {
+    padding: -60px;
+}
+
 .favoritos-container {
     width: 100%;
     max-width: 1200px;
